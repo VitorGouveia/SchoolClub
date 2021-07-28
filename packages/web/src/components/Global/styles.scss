@@ -26,3 +26,15 @@ html {
     }
   }
 }
+
+:root {
+  --margin-sm: 1rem;
+  --margin-md: 1.5rem;
+  --margin-lg: 2rem;
+
+  --border-sm: 0.2rem;
+  --border-md: 0.4rem;
+  --border-lg: 0.6rem;
+
+  --shadow: -3px 4px 14px rgba(0, 0, 0, 0.07);
+}
