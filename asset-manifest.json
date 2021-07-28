@@ -1,23 +1,20 @@
 {
   "files": {
-    "main.css": "/fobos/static/css/main.a617e044.chunk.css",
-    "main.js": "/fobos/static/js/main.0a92c14b.chunk.js",
-    "main.js.map": "/fobos/static/js/main.0a92c14b.chunk.js.map",
-    "runtime-main.js": "/fobos/static/js/runtime-main.e67dbee3.js",
-    "runtime-main.js.map": "/fobos/static/js/runtime-main.e67dbee3.js.map",
-    "static/js/2.516df946.chunk.js": "/fobos/static/js/2.516df946.chunk.js",
-    "static/js/2.516df946.chunk.js.map": "/fobos/static/js/2.516df946.chunk.js.map",
-    "static/js/3.71592c29.chunk.js": "/fobos/static/js/3.71592c29.chunk.js",
-    "static/js/3.71592c29.chunk.js.map": "/fobos/static/js/3.71592c29.chunk.js.map",
+    "main.css": "/fobos/static/css/main.cf31a071.chunk.css",
+    "main.js": "/fobos/static/js/main.40baf874.chunk.js",
+    "main.js.map": "/fobos/static/js/main.40baf874.chunk.js.map",
+    "runtime-main.js": "/fobos/static/js/runtime-main.ef139769.js",
+    "runtime-main.js.map": "/fobos/static/js/runtime-main.ef139769.js.map",
+    "static/js/2.b8f2043d.chunk.js": "/fobos/static/js/2.b8f2043d.chunk.js",
+    "static/js/2.b8f2043d.chunk.js.map": "/fobos/static/js/2.b8f2043d.chunk.js.map",
     "index.html": "/fobos/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/fobos/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.516df946.chunk.js.LICENSE.txt": "/fobos/static/js/2.516df946.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/fobos/static/media/logo.6ce24c58.svg"
+    "static/css/main.cf31a071.chunk.css.map": "/fobos/static/css/main.cf31a071.chunk.css.map",
+    "static/js/2.b8f2043d.chunk.js.LICENSE.txt": "/fobos/static/js/2.b8f2043d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e67dbee3.js",
-    "static/js/2.516df946.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.0a92c14b.chunk.js"
+    "static/js/runtime-main.ef139769.js",
+    "static/js/2.b8f2043d.chunk.js",
+    "static/css/main.cf31a071.chunk.css",
+    "static/js/main.40baf874.chunk.js"
   ]
 }
