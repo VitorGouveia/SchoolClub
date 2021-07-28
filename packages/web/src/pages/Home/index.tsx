@@ -1,3 +1,14 @@
+import { useContext } from "react"
+
+import { ThemeContext } from "../../contexts/ThemeContext"
+
 export const Home = () => {
-  return <h1>aloolk</h1>;
+  const { createTheme, cycleTheme, setTheme } = useContext(ThemeContext)
+  return (
+    <>
+      <button onClick={() => cycleTheme()}>
+        troca o tema ai
+      </button>
+    </>
+  );
 };

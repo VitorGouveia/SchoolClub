@@ -1,7 +1,15 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import './styles.scss';
 
-export const GlobalStyles: FC = ({ children }) => {
-  return <div id="global">{children}</div>;
+type GlobalStylesType = {
+  children: ReactNode
+}
+
+export const GlobalStyles: FC<GlobalStylesType> = ({ children }) => {
+  return (
+    <>
+      {children}
+    </>
+  )
 };

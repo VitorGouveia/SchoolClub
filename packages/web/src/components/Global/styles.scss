@@ -17,11 +17,19 @@ html {
 
     #app {
       @include reset;
+      
+      background: #fafafa;
+    }
 
-      #global {
-        @include reset;
+    &[data-theme = "dark"] {
+      #app {
+        background: black;
+      }
+    }
 
-        background: #fafafa;
+    &[data-theme = "rgb"] {
+      #app {
+        background: green;
       }
     }
   }
