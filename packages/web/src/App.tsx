@@ -11,9 +11,7 @@ export const App = () => {
       <Switch>
         <GlobalStyles>
           <Theme>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route path="/" component={() => <Home />} />
           </Theme>
         </GlobalStyles>
       </Switch>

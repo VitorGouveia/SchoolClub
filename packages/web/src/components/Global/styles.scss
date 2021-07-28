@@ -16,21 +16,7 @@ html {
     @include reset;
 
     #app {
-      @include reset;
-      
-      background: #fafafa;
-    }
-
-    &[data-theme = "dark"] {
-      #app {
-        background: black;
-      }
-    }
-
-    &[data-theme = "rgb"] {
-      #app {
-        background: green;
-      }
+      @include reset; 
     }
   }
 }

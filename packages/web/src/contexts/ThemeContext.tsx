@@ -27,13 +27,13 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
   /** Set initial app theme */
   useEffect(() => setTheme(localStorage.getItem("theme") || defaultTheme), [])
 
-  function createTheme(theme: keyof typeof availableThemes) {
+  function createTheme(theme: keyof typeof availableThemes | string) {
     let newTheme = theme
 
     if(!availableThemes[theme]) {
       newTheme = defaultTheme
     }
-
+    
     setTheme(newTheme)
   }
 
@@ -59,10 +59,7 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
 
     setTheme(themeArray[next])
   }
-
-  window.addEventListener("storage", (event) => {
-    setTheme(event.newValue || defaultTheme)
-  })
+  window.addEventListener("storage", (event) => createTheme(event.newValue!))
 
   return (
     <ThemeContext.Provider value={{ createTheme, setTheme, cycleTheme }}>

@@ -1,0 +1,57 @@
+body {
+  
+  
+  
+  &body[data-theme = "light"] {
+    .homeContainer {
+      color: black;
+      background: #fafa;
+    }
+  }
+  &[data-theme = "dark"] {
+    .homeContainer {
+      background: black;
+    }
+  }
+  &[data-theme = "rgb"] {
+    .homeContainer {
+      background: green;
+    }
+  }
+
+  .homeContainer {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    
+    h1 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      color: #fafafa;
+    }
+    
+    button {
+      margin-top: var(--margin-lg);
+      padding: 0.5rem 1rem;
+      border: none;
+      outline: none;
+      border-radius: var(--border-md);
+      box-shadow: var(--shadow);
+      
+      transition: all .2s;
+      
+      &:hover {
+        box-shadow: none;
+        color: #fafafa;
+        cursor: pointer;
+        background: orangered;
+      }
+    }
+  }
+}
