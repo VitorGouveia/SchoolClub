@@ -23,6 +23,10 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState("")
   const defaultTheme = "dark"
 
+
+  /** Set initial app theme */
+  useEffect(() => setTheme(localStorage.getItem("theme") || defaultTheme), [])
+
   function createTheme(theme: keyof typeof availableThemes) {
     let newTheme = theme
 
@@ -30,10 +34,11 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
       newTheme = defaultTheme
     }
 
-    setCurrentTheme(newTheme)
+    setTheme(newTheme)
   }
 
-  function setTheme(theme: keyof typeof availableThemes) {
+  /** Just set theme in localStorage and body */
+  function setTheme(theme: keyof typeof availableThemes | string) {
     /** Checking localStorage for theme */
     setCurrentTheme(theme)
 
@@ -41,22 +46,22 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
     document.body.setAttribute("data-theme", theme)
   }
 
+  /** This will cycle through all themes */
   function cycleTheme() {
-    const themeArray: [keyof typeof availableThemes] | any = Object.keys(availableThemes)
+    const themeArray: [keyof typeof availableThemes] | any[] = Object.keys(availableThemes)
 
-    const currentIndex = themeArray.indexOf(document.body.getAttribute("data-theme")!)
+    const currentIndex = themeArray.indexOf(currentTheme)
     const max = themeArray.length
     let next  = currentIndex + 1
 
+    /** If next item reaches the max of the array, set it to the first array item */
     if(next === max) next = 0
 
     setTheme(themeArray[next])
   }
 
-  useEffect(() => {
-    setTheme(defaultTheme)
-  }, [])
   window.addEventListener("storage", (event) => {
+    setTheme(event.newValue || defaultTheme)
   })
 
   return (
