@@ -1,7 +1,4 @@
 body {
-  
-  
-  
   &body[data-theme = "light"] {
     .homeContainer {
       color: black;
@@ -25,16 +22,9 @@ body {
     
     display: flex;
     flex-direction: column;
-    
+
     align-items: center;
-    justify-content: center;
-    
-    h1 {
-      font-size: 1.2rem;
-      font-weight: bold;
-      font-family: sans-serif;
-      color: #fafafa;
-    }
+    justify-content: space-between;
     
     button {
       margin-top: var(--margin-lg);

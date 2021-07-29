@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react"
-import { register } from "../serviceWorkerRegistration"
+import { register } from "./serviceWorkerRegistration"
 
 type PWAProps = {
   children: ReactNode

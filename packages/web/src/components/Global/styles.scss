@@ -21,6 +21,15 @@ html {
   }
 }
 
+a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+:focus {
+  outline: none;
+}
+
 :root {
   --margin-sm: 1rem;
   --margin-md: 1.5rem;
