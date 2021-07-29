@@ -4,14 +4,15 @@
   "private": true,
   "homepage": "https://vitorgouveia.github.io/fobos",
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "commit": "git-cz",
-    "release": "release-it"
+    "release": "release-it",
+    "start": "http-server build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,7 @@
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "gh-pages": "^3.2.3",
+    "http-server": "^0.12.3",
     "react-app-rewire-alias": "^1.0.3",
     "release-it": "^14.10.1"
   },
@@ -55,7 +57,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "workbox-cacheable-response": "^6.1.5",
+    "workbox-expiration": "^6.1.5",
+    "workbox-routing": "^6.1.5",
+    "workbox-strategies": "^6.1.5"
   },
   "config": {
     "commitizen": {
