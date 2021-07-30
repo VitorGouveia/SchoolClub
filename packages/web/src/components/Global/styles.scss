@@ -11,6 +11,7 @@
 
 html {
   @include reset;
+  font-family: sans-serif;
 
   body {
     @include reset;
@@ -24,6 +25,11 @@ html {
 a {
   text-decoration: none;
   color: #fafafa;
+}
+
+button {
+  outline: none;
+  border: none;
 }
 
 :focus {

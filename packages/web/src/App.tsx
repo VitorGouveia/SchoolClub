@@ -13,13 +13,13 @@ export const App = () => {
     <BrowserRouter>
       <Switch>
         <Suspense fallback={Loading}>
-        <PWA>
-          <GlobalStyles>
-            <Theme>
-              <Route path="/" exact component={() => <Home />} />
-            </Theme>
-          </GlobalStyles>
-        </PWA>
+          <PWA>
+            <GlobalStyles>
+              <Theme>
+                <Route path="/" exact component={() => <Home />} />
+              </Theme>
+            </GlobalStyles>
+          </PWA>
         </Suspense>
       </Switch>
     </BrowserRouter>
