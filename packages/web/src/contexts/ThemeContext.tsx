@@ -4,6 +4,7 @@ type ThemeContextType = {
   createTheme: (theme: keyof typeof availableThemes) => void
   setTheme: (theme: keyof typeof availableThemes) => void
   cycleTheme: () => void
+  getTheme: () => { index: number, name: string }
 }
 
 export const ThemeContext = createContext({} as ThemeContextType)
@@ -59,10 +60,23 @@ export const Theme: FC<ThemeProviderProps> = ({ children }) => {
 
     setTheme(themeArray[next])
   }
+
+  function getTheme() {
+    const localTheme = localStorage.getItem("theme")
+    setCurrentTheme(localTheme!)
+
+    const themeArray = Object.keys(availableThemes)
+    const index = themeArray.indexOf(localTheme!)
+
+    return {
+      index,
+      name: localTheme!
+    }
+  }
   window.addEventListener("storage", (event) => createTheme(event.newValue!))
 
   return (
-    <ThemeContext.Provider value={{ createTheme, setTheme, cycleTheme }}>
+    <ThemeContext.Provider value={{ createTheme, setTheme, cycleTheme, getTheme }}>
       {children}
     </ThemeContext.Provider>
   )

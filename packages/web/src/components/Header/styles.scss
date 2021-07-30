@@ -1,5 +1,6 @@
 header {
   width: 100%;
+  padding: 1rem;
   position: relative;
   overflow: hidden;
 
@@ -70,16 +71,28 @@ header {
 
     }
 
-    button {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      // right: 1%;
+  }
+  button {
+    display: flex;
 
-      width: 2rem;
-      height: 2rem;
+    align-items: center;
+    justify-content: center;
 
-      border-radius: 50%;
+    position: absolute;
+    right: 1rem;
+    top: 0;
+
+    background: #fafafa;
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+    transition: all 200ms;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(100%);
     }
   }
 

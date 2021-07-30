@@ -25,23 +25,5 @@ body {
 
     align-items: center;
     justify-content: space-between;
-    
-    button {
-      margin-top: var(--margin-lg);
-      padding: 0.5rem 1rem;
-      border: none;
-      outline: none;
-      border-radius: var(--border-md);
-      box-shadow: var(--shadow);
-      
-      transition: all .2s;
-      
-      &:hover {
-        box-shadow: none;
-        color: #fafafa;
-        cursor: pointer;
-        background: orangered;
-      }
-    }
   }
 }
