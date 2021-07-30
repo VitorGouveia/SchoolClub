@@ -1,5 +1,5 @@
 body {
-  &body[data-theme = "light"] {
+  &[data-theme = "light"] {
     .homeContainer {
       color: black;
       background: #fafa;
@@ -24,6 +24,24 @@ body {
     flex-direction: column;
 
     align-items: center;
-    justify-content: space-between;
+
+    transition: all 200ms;
+
+    article {
+      width: 100%;
+      overflow: auto;
+
+      padding: 1rem;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      align-items: center;
+      justify-content: center;
+
+      section {
+        margin: 1rem;
+      }
+    }
   }
 }

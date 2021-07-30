@@ -1,21 +1,46 @@
-import { useContext } from "react"
-
-import { ThemeContext } from "../../contexts/ThemeContext"
-import { Header } from "../../components/Header"
+import { Header, Post } from "../../components"
+import gif from "../../img/post-1.gif"
 
 import "./styles.scss"
 
 export const Home = () => {
-  const { cycleTheme } = useContext(ThemeContext)
   return (
     <>
       <main className="homeContainer">
-          <Header />
+        <Header />
 
-          <section>
-            <h1>Change the theme!</h1>
-            <button onClick={() => cycleTheme()}>Change theme</button>
-          </section>
+        <article>
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+          <Post
+            title="Pressão máxima de vapor e Temperatura de Ebulição"
+            image={gif}
+            tags={["vídeo", "experiência"]}
+            />
+        </article>
       </main>
     </>
   );
