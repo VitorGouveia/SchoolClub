@@ -1,25 +1,13 @@
+@import "../../themes/dark";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@mixin reset {
-  width: 100%;
-  height: 100%;
-}
-
 html {
-  @include reset;
   font-family: sans-serif;
-
-  body {
-    @include reset;
-
-    #app {
-      @include reset; 
-    }
-  }
 }
 
 a {

@@ -9,8 +9,6 @@ type PostProps = {
 }
 
 export const Post: FC<PostProps> = ({ title, image, tags }) => {
-  const currentDate = new Date().toLocaleDateString()
-
   return (
     <section className="postContainer">
       <h1>{title}</h1>
@@ -20,7 +18,7 @@ export const Post: FC<PostProps> = ({ title, image, tags }) => {
           {tags.map(tag => {
             return (
               <span key={tag}>
-                {tag}
+                {`#${tag}`}
               </span>
             )
           })}

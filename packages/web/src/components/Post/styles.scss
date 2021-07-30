@@ -20,10 +20,11 @@
 
   figcaption {
     span {
-      padding: 0.4rem;
       background: gray;
-      border-radius: var(--border-md);
+      border-radius: var(--border-sm);
       margin: 0 0.2rem;
+      padding: 0 0.6rem;
+      font-size: 0.8rem;
       
       &:first-child {
         margin: 0 0.2rem 0 0;
