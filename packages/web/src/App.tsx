@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { Theme } from "./contexts/ThemeContext"
 import { PWA } from "./pwa"
@@ -16,7 +16,10 @@ export const App = () => {
           <PWA>
             <GlobalStyles>
               <Theme>
-                <Route path="/" exact component={() => <Home />} />
+                <Route exact path="/" component={() => <Home />} />
+                <Route exact path="/fobos">
+                  <Redirect to="/" />
+                </Route> 
               </Theme>
             </GlobalStyles>
           </PWA>
