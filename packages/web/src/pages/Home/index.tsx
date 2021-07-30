@@ -9,38 +9,38 @@ export const Home = () => {
       <main className="homeContainer">
         <Header />
 
-        <article>
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-        </article>
+          <article>
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+            <Post
+              title="Pressão máxima de vapor e Temperatura de Ebulição"
+              image={gif}
+              tags={["vídeo", "experiência"]}
+              />
+          </article>
       </main>
     </>
   );
