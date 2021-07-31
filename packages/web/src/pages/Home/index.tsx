@@ -33,7 +33,7 @@ export const Home = () => {
 
         <article>
           {posts.map(post => {
-            return <Post key={post.id} title={post.title} tags={post.tags} image={`/fobos/static/media/${post.image}`} />
+            return <Post key={post.id} title={post.title} tags={post.tags} image={`${post.image}`} />
           })}
         </article>
 
