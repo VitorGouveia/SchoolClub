@@ -42,9 +42,11 @@ body {
       padding: $spacing-3;
 
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax($spacing-1 * 5, 1fr));
 
-      row-gap: $spacing-2 * 2;
+      justify-items: center;
+
+      row-gap: $xxl * 2;
 
       background: $gray-900;
 
