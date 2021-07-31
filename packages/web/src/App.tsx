@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { Theme } from "./contexts/ThemeContext"
 import { PWA } from "./pwa"
@@ -10,7 +10,7 @@ import { GlobalStyles } from './components/Global';
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Suspense fallback={Loading}>
           <PWA>
@@ -25,6 +25,6 @@ export const App = () => {
           </PWA>
         </Suspense>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
