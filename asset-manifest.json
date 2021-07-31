@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "/fobos/static/css/main.17ec57ec.chunk.css",
-    "main.js": "/fobos/static/js/main.8b69ace2.chunk.js",
-    "main.js.map": "/fobos/static/js/main.8b69ace2.chunk.js.map",
+    "main.css": "/fobos/static/css/main.8cceea44.chunk.css",
+    "main.js": "/fobos/static/js/main.bb10d0cd.chunk.js",
+    "main.js.map": "/fobos/static/js/main.bb10d0cd.chunk.js.map",
     "runtime-main.js": "/fobos/static/js/runtime-main.ef139769.js",
     "runtime-main.js.map": "/fobos/static/js/runtime-main.ef139769.js.map",
-    "static/js/2.fec1516c.chunk.js": "/fobos/static/js/2.fec1516c.chunk.js",
-    "static/js/2.fec1516c.chunk.js.map": "/fobos/static/js/2.fec1516c.chunk.js.map",
+    "static/js/2.27b304e1.chunk.js": "/fobos/static/js/2.27b304e1.chunk.js",
+    "static/js/2.27b304e1.chunk.js.map": "/fobos/static/js/2.27b304e1.chunk.js.map",
     "index.html": "/fobos/index.html",
     "service-worker.js": "/fobos/service-worker.js",
     "service-worker.js.map": "/fobos/service-worker.js.map",
-    "static/css/main.17ec57ec.chunk.css.map": "/fobos/static/css/main.17ec57ec.chunk.css.map",
-    "static/js/2.fec1516c.chunk.js.LICENSE.txt": "/fobos/static/js/2.fec1516c.chunk.js.LICENSE.txt",
-    "static/media/parallax-bg.28ba6662.jpg": "/fobos/static/media/parallax-bg.28ba6662.jpg",
-    "static/media/post-1.61dd1dc1.gif": "/fobos/static/media/post-1.61dd1dc1.gif"
+    "static/css/main.8cceea44.chunk.css.map": "/fobos/static/css/main.8cceea44.chunk.css.map",
+    "static/js/2.27b304e1.chunk.js.LICENSE.txt": "/fobos/static/js/2.27b304e1.chunk.js.LICENSE.txt",
+    "static/media/parallax-bg.28ba6662.jpg": "/fobos/static/media/parallax-bg.28ba6662.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.ef139769.js",
-    "static/js/2.fec1516c.chunk.js",
-    "static/css/main.17ec57ec.chunk.css",
-    "static/js/main.8b69ace2.chunk.js"
+    "static/js/2.27b304e1.chunk.js",
+    "static/css/main.8cceea44.chunk.css",
+    "static/js/main.bb10d0cd.chunk.js"
   ]
 }
