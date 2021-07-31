@@ -1,3 +1,5 @@
+@import "../../components/Global/styles";
+
 body {
   &[data-theme = "light"] {
     .homeContainer {
@@ -38,6 +40,8 @@ body {
 
       align-items: center;
       justify-content: center;  
+
+      background: $gray-900;
 
       section {
         margin: 1rem;

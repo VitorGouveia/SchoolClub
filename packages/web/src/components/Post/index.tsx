@@ -1,4 +1,5 @@
 import { FC } from "react"
+import { Redirect } from "react-router-dom"
 
 import "./styles.scss"
 
@@ -9,9 +10,16 @@ type PostProps = {
 }
 
 export const Post: FC<PostProps> = ({ title, image, tags }) => {
+  /** Removes glyphs, put dash between the spaces, lowercase */
+  const titleURL = title.replace(/\s+/g, '-').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+  
+  const handleRedirect = () => window.location.href = `/${titleURL}`
   return (
-    <section className="postContainer">
-      <h1>{title}</h1>
+    <section onClick={() => handleRedirect()} className="postContainer">
+      <div className="title">
+        <h1>{title}</h1>
+      </div>
+      <hr />
       <figure>
         <img src={image} alt={title} />
         <figcaption>

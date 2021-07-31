@@ -1,43 +1,85 @@
+@import "../Global/styles";
+
 .postContainer {
-  max-width: 300px;
+  max-width: $spacing-1 * 6;
 
   display: flex;
   flex-direction: column;
 
-  padding: 1.2rem 0.8rem;
-  color: #fafafa;
+  color: $gray-100;
 
+  border: 1px solid $gray-600;
+  border-radius: $md;
+  box-shadow: $shadow;
+  overflow: hidden;
+  background: $gray-800;
+  transition: all 200ms;
+  
   h1 {
-    font-size: 0.9rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    font-size: $heading-4;
     font-weight: bold;
+  }
+
+  hr {
+    width: 100%;
+    border-top: 1px solid $gray-600;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    outline: none;
+    transition: all 200ms;
+  }
+
+  .title, figure {
+    padding: $spacing-4 $spacing-5;
+    background: $gray-800;
   }
 
   img {
     width: 100%;
-
-    margin: var(--margin-sm) 0;
+    border-radius: $md;
+    margin: $sm 0;
   }
 
   figcaption {
+    margin-top: $lg;
+
     span {
-      background: gray;
-      border-radius: var(--border-sm);
-      margin: 0 0.2rem;
-      padding: 0 0.6rem;
-      font-size: 0.8rem;
+      color: $gray-100;
+      background: $gray-700;
+      border-radius: $sm;
+      margin: 0 $sm;
+      padding: $spacing-8 $lg;
+      font-size: $small;
+      font-weight: bold;
+      transition: all 200ms;
       
       &:first-child {
-        margin: 0 0.2rem 0 0;
+        margin-right: $sm;
       }
       
       &:last-child {
-        margin: 0 0 0 0.2rem;
+        margin-left: $sm;
+      }
+
+      &:hover {
+        background: $gray-600;
       }
     }
   }
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     cursor: pointer;
-    filter: brightness(80%);
+    border-color: $gray-300;
+
+    hr {
+      border-color: $gray-300;
+    }
   }
 }
