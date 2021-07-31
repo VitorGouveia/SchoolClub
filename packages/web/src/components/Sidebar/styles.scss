@@ -123,6 +123,7 @@ aside {
     }
 
     main {
+      width: 100%;
       position: relative;
 
       display: flex;
@@ -143,7 +144,7 @@ aside {
         font-weight: bold;
 
         position: absolute;
-        right: -$spacing-4;
+        right: $xl;
         top: $xl;
       }
 
