@@ -28,7 +28,7 @@ export const Header = () => {
   
   const pages = ["início", "artigos", "recursos", "vídeos", "plataforma", "ENEM", "sobre"]
   return (
-    <header>
+    <header id="nav">
       <img src={bg} alt="nothing." />
 
       <section className="parallax">
