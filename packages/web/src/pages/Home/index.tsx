@@ -1,5 +1,6 @@
 import { Header, Post, Sidebar } from "../../components"
-import gif from "../../img/post-1.gif"
+
+import posts from "./posts.json"
 
 import "./styles.scss"
 
@@ -31,32 +32,9 @@ export const Home = () => {
         </nav>
 
         <article>
-          <Post title="Pressão máxima de vapor e Temperatura de Ebulição" image={gif} tags={["🇧🇷", "vídeo", "experiência"]} />
-          <Post
-            title="Volatilidade"
-            image={gif}
-            tags={["🇧🇷", "vídeo", "expriência", "forças intermoleculares"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["vídeo", "experiência"]}
-            />
+          {posts.map(post => {
+            return <Post key={post.id} title={post.title} tags={post.tags} image={`/fobos/static/media/${post.image}`} />
+          })}
         </article>
 
         <Sidebar user={user} ad={ad} />
