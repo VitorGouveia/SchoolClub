@@ -16,12 +16,12 @@ export const Home = () => {
           <Post
             title="Pressão máxima de vapor e Temperatura de Ebulição"
             image={gif}
-            tags={["vídeo", "experiência"]}
+            tags={["🇧🇷", "vídeo", "experiência"]}
             />
           <Post
             title="Volatilidade"
             image={gif}
-            tags={["vídeo", "experiência", "forças intermoleculares"]}
+            tags={["🇧🇷", "vídeo", "expriência", "forças intermoleculares"]}
             />
           <Post
             title="Pressão máxima de vapor e Temperatura de Ebulição"
@@ -66,7 +66,15 @@ export const Home = () => {
           </div>
 
           <div id="ad">
-            
+            <header />
+
+            <main>
+              <h4><strong>The Ultimate Software Engineering Interview Prep</strong></h4>
+              <small>AlgoExpert | Ace the Coding Interviews</small>
+              <Link to="/algo-expert">
+                algoexpert.io
+              </Link>
+            </main>
           </div>
         </aside>
       </main>

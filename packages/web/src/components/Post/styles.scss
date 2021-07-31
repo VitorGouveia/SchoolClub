@@ -42,18 +42,18 @@
 
   img {
     width: 100%;
-    border-radius: $md;
-    margin: $sm 0;
+    margin: $xxl 0 0 0;
   }
 
   figcaption {
-    margin-top: $lg;
+    display: flex;
+    flex-wrap: wrap;
 
     span {
       color: $gray-100;
       background: $gray-700;
       border-radius: $sm;
-      margin: 0 $sm;
+      margin: $sm;
       padding: $spacing-8 $lg;
       font-size: $small;
       font-weight: bold;

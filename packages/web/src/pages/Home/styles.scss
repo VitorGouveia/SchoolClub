@@ -24,9 +24,9 @@ body {
     
     display: grid;
     grid-template-areas: 
-      "head   head   head"
-      "main   main   aside"
-      "main   main   aside";
+      "head head head head head"
+      "main main main main aside"
+      "main main main main aside";
 
     transition: all 200ms;
 
@@ -44,7 +44,6 @@ body {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 
-      place-items: center;
       row-gap: $spacing-2 * 2;
 
       background: $gray-900;
@@ -59,6 +58,13 @@ body {
       background: $gray-900;
 
       padding: $spacing-3;
+
+      div {
+        
+        &:nth-child(even) {
+          margin: $xxl 0;
+        }
+      }
 
       #user {
         width: 100%;
@@ -152,6 +158,68 @@ body {
             }
           }
         } 
+      }
+
+      #ad {
+        display: flex;
+        
+        border-radius: $md;
+        background: $gray-800;
+
+        header {
+          background: $gray-100;
+
+          width: $spacing-1 * 1.5;
+          background: $gray-100;
+
+          border-radius: $md 0 0 $md;
+        }
+
+        main {
+          position: relative;
+
+          display: flex;
+          flex-direction: column;
+
+          justify-content: flex-start;
+
+          padding: $spacing-4;
+
+          &::after {
+            content: "AD";
+            color: $gray-100;
+            background: $gray-700;
+            border-radius: $sm;
+            margin: $sm;
+            padding: $spacing-8 $lg;
+            font-size: $small;
+            font-weight: bold;
+
+            position: absolute;
+            right: -$spacing-4;
+            top: $xl;
+          }
+
+          h4 {
+            color: $gray-100;
+            font-size: $paragraph;
+          }
+
+          small {
+            color: $gray-300;
+            font-size: $small;
+            margin: $xxl 0;
+          }
+        
+          a {
+            text-decoration: underline;
+            color: $accent;
+
+            &:hover {
+              color: $accent-hover;
+            }
+          }
+        }
       }
     }
   }

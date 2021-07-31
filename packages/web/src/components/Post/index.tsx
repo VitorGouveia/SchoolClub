@@ -20,10 +20,18 @@ export const Post: FC<PostProps> = ({ title, image, tags }) => {
         <h1>{title}</h1>
       </div>
       <hr />
-      <figure>
         <img src={image} alt={title} />
+      <figure>
         <figcaption>
           {tags.map(tag => {
+            if(tag === "🇧🇷") {
+              return (
+                <span key={tag}>
+                  {tag}
+                </span>
+              )
+            }
+
             return (
               <span key={tag}>
                 {`#${tag}`}
