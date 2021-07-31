@@ -1,10 +1,28 @@
-import { Link } from "react-router-dom";
-import { Header, Post } from "../../components"
+import { Header, Post, Sidebar } from "../../components"
 import gif from "../../img/post-1.gif"
 
 import "./styles.scss"
 
 export const Home = () => {
+  const user = {
+    name: "Vitor Gouveia",
+    profile: "@vitorgouveia",
+    description: "Dev Sênior, Químico",
+    page: {
+      link: "vitor",
+      text: "See my articles!"
+    }
+  }
+
+  const ad = {
+    description: "The Ultimate Software Engineering Interview Prep",
+    phrase: "AlgoExpert | Ace the Coding Interviews",
+    page: {
+      link: "algo-expert",
+      text: "algoexpert.io"
+    }
+  }
+
   return (
     <>
       <main className="homeContainer">
@@ -13,11 +31,7 @@ export const Home = () => {
         </nav>
 
         <article>
-          <Post
-            title="Pressão máxima de vapor e Temperatura de Ebulição"
-            image={gif}
-            tags={["🇧🇷", "vídeo", "experiência"]}
-            />
+          <Post title="Pressão máxima de vapor e Temperatura de Ebulição" image={gif} tags={["🇧🇷", "vídeo", "experiência"]} />
           <Post
             title="Volatilidade"
             image={gif}
@@ -45,38 +59,7 @@ export const Home = () => {
             />
         </article>
 
-        <aside>
-          <div id="user">
-            <header id="profile">
-              <div className="profile-img" />
-
-              <p>Vitor Gouveia</p>
-              <small>@vitorgouveia</small>
-            </header>
-
-            <main>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis nunc sit pulvinar ut tellus sit tincidunt faucibus sapien. ⚡️</p>
-            </main>
-
-            <footer>
-              <Link to="/vitor">
-                See my articles!
-              </Link>
-            </footer>
-          </div>
-
-          <div id="ad">
-            <header />
-
-            <main>
-              <h4><strong>The Ultimate Software Engineering Interview Prep</strong></h4>
-              <small>AlgoExpert | Ace the Coding Interviews</small>
-              <Link to="/algo-expert">
-                algoexpert.io
-              </Link>
-            </main>
-          </div>
-        </aside>
+        <Sidebar user={user} ad={ad} />
       </main>
     </>
   );
