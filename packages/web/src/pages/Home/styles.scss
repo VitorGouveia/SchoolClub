@@ -41,11 +41,11 @@ body {
 
       padding: $spacing-3;
 
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
 
-      align-items: center;
-      justify-content: center;  
+      place-items: center;
+      row-gap: $spacing-2 * 2;
 
       background: $gray-900;
 
