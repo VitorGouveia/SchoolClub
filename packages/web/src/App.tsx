@@ -4,7 +4,7 @@ import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Theme } from "./contexts/ThemeContext"
 import { PWA } from "./pwa"
 
-import { Home, Loading } from './pages';
+import { Home, Loading, PostPage } from './pages';
 
 import { GlobalStyles } from './components/Global';
 
@@ -17,6 +17,8 @@ export const App = () => {
             <GlobalStyles>
               <Theme>
                 <Route exact path="/" component={() => <Home />} />
+                <Route path="/post/:name" component={() => <PostPage />} />
+                <Route exact path="/loading" component={() => <Loading />} />
                 <Route exact path="/fobos">
                   <Redirect to="/" />
                 </Route> 
