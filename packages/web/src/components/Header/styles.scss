@@ -85,10 +85,12 @@ header#nav {
     right: var(--xxl);
     top: 0;
 
+    font-size: var(--spacing-4);
+
     background: var(--gray-100);
 
-    width: calc(var(--xxl) * 2);
-    height: calc(var(--xxl) * 2);
+    width: calc(var(--spacing-4) * 2);
+    height: calc(var(--spacing-4) * 2);
 
     border-radius: 50%;
     transition: all 200ms;
