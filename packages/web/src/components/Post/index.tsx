@@ -20,8 +20,7 @@ export const Post: FC<PostProps> = ({ title, image, tags }) => {
         <h1>{title}</h1>
       </div>
       <hr />
-      {console.log(image)}
-        <img src={image} alt={title} />
+      <img src={image} alt={title} />
       <figure>
         <figcaption>
           {tags.map(tag => {
