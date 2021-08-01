@@ -1,0 +1,109 @@
+$posts: 4;
+$tags: 4;
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  
+  @return $randomNum;
+}
+
+@mixin loading-bg {
+  background: none;
+  background-color: var(--gray-800);
+  background-image: linear-gradient(to right, var(--gray-800), var(--gray-700), var(--gray-800));
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: loading 1.2s ease-in-out infinite;
+}
+
+.loading {
+  article {
+    .title {
+      h1 {
+        border-radius: var(--sm);
+        width: 50%;
+        height: var(--heading-4);
+        @include loading-bg;
+      }
+    }
+    
+    section {
+      @include loading-bg;
+      
+      img {
+        opacity: 0;
+      }
+      
+      span {
+        height: calc(var(--small) + var(--spacing-8));
+        @include loading-bg;
+      }
+      
+      &:first-child {
+        span {
+          &:first-child {
+            width: #{randomNum(1, 8)}rem;
+          }
+          
+          &:last-child {
+            width: #{randomNum(1, 10)}rem;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        span {
+          &:first-child {
+            width: #{randomNum(1, 10)}rem;
+          }
+          
+          &:last-child {
+            width: #{randomNum(1, 10)}rem;
+          }
+        }
+      }
+      
+      &:last-child {
+        span {
+          &:first-child {
+            width: #{randomNum(1, 10)}rem;
+          }
+          
+          &:last-child {
+            width: #{randomNum(1, 10)}rem;
+          }
+        }
+      }
+    }
+  }
+  
+  aside {
+    #user {
+      #profile {
+        p, small {
+          color: transparent;
+          background: transparent;
+          animation: loading 1.2s ease-in-out infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  from {
+    background-position: -200px 0;
+    //   background: hsl(0, 0%, 14%);
+    //   background: hsla(0, 0%, 22%, 0.4);
+    //   background: hsl(0, 0%, 16%);
+    //   background: hsl(0, 0%, 22%);
+    //   background: hsl(0, 0%, 28%);
+    //   background: hsla(0, 0%, 22%, 1);
+    //   background: hsl(0, 0%, 20%);
+  }
+  
+  to {
+    background-position: calc(200px + 100%) 0;
+  }
+}
