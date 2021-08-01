@@ -1,0 +1,65 @@
+@media (max-width: 1080px) {
+  html {
+    font-size: 87.5% /* 14px */
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 75%; /* 12px */
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 62.50%; /* 10px */
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 50%; /* 8px */
+  }
+
+  aside {
+    #user {
+      #profile {
+        grid-template-areas:
+          "pic       pic       pic"
+          "paragraph paragraph paragraph"
+          "tiny      tiny      tiny"
+        ;
+
+        .profile-img {
+          margin-right: 0;
+          margin-bottom: var(--xxl);
+        }
+      }
+
+      main, footer {
+        display: none;
+      }
+    }
+
+    #ad {
+      header {
+        display: none;
+      }
+
+      main {
+        h4 {
+          display: none;
+        }
+
+        small {
+          margin-top: 0;
+        }
+
+        &::after {
+          top: unset;
+          bottom: var(--xxl);
+        }
+      }
+    }
+  }
+}
