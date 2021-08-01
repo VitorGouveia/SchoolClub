@@ -1,0 +1,15 @@
+[data-theme="light"] {
+  --accent: #FD4D4D;
+  --accent-hover: #FD6868;
+  --pure-white: #fafafa;
+
+  --gray-100: #DEE3EA;
+  --gray-200: #B2BDCD;
+  --gray-300: #5D7290;
+  --gray-400: #4F617A;
+  --gray-500: #404F64;
+  --gray-600: #323D4D;
+  --gray-700: var(--gray-300);
+  --gray-800: var(--gray-400);
+  --gray-900: var(--gray-500);
+}
