@@ -1,12 +1,12 @@
 @import "../../components/Global/styles";
 
 aside {
-  background: $gray-900;
-  padding: $spacing-3;
+  background: var(--gray-900);
+  padding: var(--spacing-3);
 
   div {
     &:nth-child(even) {
-      margin: $xxl 0;
+      margin: var(--xxl) 0;
     }
   }
 
@@ -19,12 +19,12 @@ aside {
     align-items: flex-start;
     justify-content: space-around;
 
-    border-radius: $md;
-    padding: $spacing-4;
-    background: $gray-800;
+    border-radius: var(--md);
+    padding: var(--spacing-4);
+    background: var(--gray-800);
 
     #profile {
-      color: $gray-100;
+      color: var(--gray-100);
 
       display: grid;
       grid-template-areas:
@@ -35,14 +35,14 @@ aside {
       .profile-img {
         grid-area: pic;
 
-        width: $spacing-2 * 2;
-        height: $spacing-2 * 2;
+        width: calc(var(--spacing-2) * 2);
+        height: calc(var(--spacing-2) * 2);
         border-radius: 50%;
         position: relative;
 
-        margin-right: $xxl;
+        margin-right: var(--xxl);
 
-        background: $gray-500;
+        background: var(--gray-500);
 
         &::after {
           content: "";
@@ -51,12 +51,12 @@ aside {
           right: 0;
           bottom: 0;
 
-          width: $spacing-5;
-          height: $spacing-5;
-          border-radius: $xl;
+          width: var(--spacing-5);
+          height: var(--spacing-5);
+          border-radius: var(--xl);
 
-          background: $accent;
-          border: 4px solid $gray-800;
+          background: var(--accent);
+          border: 4px solid var(--gray-800);
         }
       }
 
@@ -66,39 +66,39 @@ aside {
         align-self: self-end;
 
         font-weight: bold;
-        font-size: $small;
+        font-size: var(--small);
       }
       
       small {
         grid-area: tiny;
 
-        color: $gray-300;
-        font-size: $small;
+        color: var(--gray-300);
+        font-size: var(--small);
       }
     }
 
     main {
-      margin: $xxl 0;
+      margin: var(--xxl) 0;
 
       p {
         width: 40ch;
-        color: $gray-300;
+        color: var(--gray-300);
 
-        font-size: $paragraph;
+        font-size: var(--paragraph);
         font-weight: 500;
       }
     }
 
     footer {
       a {
-        color: $accent;
+        color: var(--accent);
         font-weight: bold;
-        font-size: $paragraph;
+        font-size: var(--paragraph);
         
         transition: all 200ms;
         
         &:hover {
-          color: $accent-hover;
+          color: var(--accent-hover);
         }
       }
     } 
@@ -107,16 +107,16 @@ aside {
   #ad {
     display: flex;
     
-    border-radius: $md;
-    background: $gray-800;
+    border-radius: var(--md);
+    background: var(--gray-800);
 
     header {
-      background: $gray-100;
+      background: var(--gray-100);
 
-      width: $spacing-1 * 1.5;
-      background: $gray-100;
+      width: calc(var(--spacing-1) * 1.5);
+      background: var(--gray-100);
 
-      border-radius: $md 0 0 $md;
+      border-radius: var(--md) 0 0 var(--md);
     }
 
     main {
@@ -128,45 +128,45 @@ aside {
 
       justify-content: flex-start;
 
-      padding: $spacing-4;
+      padding: var(--spacing-4);
 
       &::after {
         content: "AD";
-        color: $gray-100;
-        background: $gray-700;
-        border-radius: $sm;
-        margin: $sm;
-        padding: $spacing-8 $lg;
-        font-size: $small;
+        color: var(--gray-100);
+        background: var(--gray-700);
+        border-radius: var(--sm);
+        margin: var(--sm);
+        padding: var(--spacing-8) var(--lg);
+        font-size: var(--small);
         font-weight: bold;
 
         position: absolute;
-        right: $xl;
-        top: $xl;
+        right: var(--xl);
+        top: var(--xl);
         transition: all 200ms;
       }
 
       &:hover::after {
-        background: $gray-500;
+        background: var(--gray-500);
       }
 
       h4 {
-        color: $gray-100;
-        font-size: $paragraph;
+        color: var(--gray-100);
+        font-size: var(--paragraph);
       }
 
       small {
-        color: $gray-300;
-        font-size: $small;
-        margin: $xxl 0;
+        color: var(--gray-300);
+        font-size: var(--small);
+        margin: var(--xxl) 0;
       }
     
       a {
         text-decoration: underline;
-        color: $accent;
+        color: var(--accent);
 
         &:hover {
-          color: $accent-hover;
+          color: var(--accent-hover);
         }
       }
     }

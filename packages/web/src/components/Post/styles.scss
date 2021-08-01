@@ -1,18 +1,18 @@
 @import "../Global/styles";
 
 .postContainer {
-  width: $spacing-1 * 5;
+  width: calc(var(--spacing-1) * 5);
 
   display: flex;
   flex-direction: column;
 
-  color: $gray-100;
+  color: var(--gray-100);
 
   border: 1px solid transparent;
-  border-radius: $md;
-  box-shadow: $shadow;
+  border-radius: var(--md);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  background: $gray-800;
+  background: var(--gray-800);
   transition: all 200ms;
   
   h1 {
@@ -20,14 +20,14 @@
     white-space: nowrap;
     overflow: hidden;
     width: 100%;
-    font-size: $heading-4;
+    font-size: var(--heading-4);
     font-weight: bold;
     transition: all 200ms;
   }
 
   hr {
     width: 100%;
-    border-top: 1px solid $gray-600;
+    border-top: 1px solid var(--gray-600);
     border-right: none;
     border-left: none;
     border-bottom: none;
@@ -36,13 +36,13 @@
   }
 
   .title, figure {
-    padding: $spacing-4 $spacing-5;
-    background: $gray-800;
+    padding: var(--spacing-4) var(--spacing-5);
+    background: var(--gray-800);
   }
 
   img {
     width: 100%;
-    margin: $xxl 0 0 0;
+    margin: var(--xxl) 0 0 0;
   }
 
   figcaption {
@@ -50,25 +50,25 @@
     flex-wrap: wrap;
 
     span {
-      color: $gray-100;
-      background: $gray-700;
-      border-radius: $sm;
-      margin: $sm;
-      padding: $spacing-8 $lg;
-      font-size: $small;
+      color: var(--gray-100);
+      background: var(--gray-700);
+      border-radius: var(--sm);
+      margin: var(--sm);
+      padding: var(--spacing-8) var(--lg);
+      font-size: var(--small);
       font-weight: bold;
       transition: all 200ms;
       
       &:first-child {
-        margin-right: $sm;
+        margin-right: var(--sm);
       }
       
       &:last-child {
-        margin-left: $sm;
+        margin-left: var(--sm);
       }
 
       &:hover {
-        background: $gray-600;
+        background: var(--gray-600);
       }
     }
   }
@@ -77,14 +77,14 @@
   &:active,
   &:focus {
     cursor: pointer;
-    border-color: $gray-300;
+    border-color: var(--gray-300);
 
     h1 {
-      color: $gray-300;
+      color: var(--gray-300);
     }
 
     hr {
-      border-color: $gray-300;
+      border-color: var(--gray-300);
     }
   }
 }
