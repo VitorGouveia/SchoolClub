@@ -33,7 +33,9 @@ export const Header = () => {
       <img src={bg} alt="nothing." />
 
       <section className="parallax">
-        <h1>Blog de Química</h1>
+        <Link to="/">
+          <h1>Blog de Química</h1>
+        </Link>
 
         <nav>
           <ul>
@@ -43,8 +45,8 @@ export const Header = () => {
 
               if(isCurrentPage) {
                 return (
-                  <li tab-index="-1" key={page}>
-                    <Link tab-index="-1" data-active="true" to={`/${page}`}>{page}</Link>
+                  <li key={page}>
+                    <Link data-active="true" to={`/${page}`}>{page}</Link>
                   </li>
                 )
               }

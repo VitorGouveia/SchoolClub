@@ -3,24 +3,100 @@
     "id": 0,
     "title": "Pressão máxima de vapor e Temperatura de Ebulição",
     "image": "https://gitcdn.link/cdn/VitorGouveia/fobos/2f439d0672d2cc25a63b3e172c559f73fca2249a/packages/web/src/img/post-1.gif",
-    "tags": ["🇧🇷", "vídeo", "experiência"]
+    "tags": [
+      {
+        "id": 0,
+        "name": "🇧🇷"
+      },
+      {
+        "id": 1,
+        "name": "vídeo"
+      },
+      {
+        "id": 2,
+        "name": "experiência"
+      }
+    ]
   },
   {
     "id": 1,
     "title": "Volatilidade",
     "image": "https://gitcdn.link/cdn/VitorGouveia/fobos/2f439d0672d2cc25a63b3e172c559f73fca2249a/packages/web/src/img/post-1.gif",
-    "tags": ["🇧🇷", "vídeo", "expriência", "forças intermoleculares"]
+    "tags": [
+      {
+        "id": 0,
+        "name": "🇧🇷"
+      },
+      {
+        "id": 1,
+        "name": "vídeo"
+      },
+      {
+        "id": 2,
+        "name": "experiência"
+      },
+      {
+        "id": 3,
+        "name": "forças intermoleculares"
+      }
+    ]
   },
   {
     "id": 2,
     "title": "Distribuição eletrônica",
     "image": "https://gitcdn.link/cdn/VitorGouveia/fobos/2f439d0672d2cc25a63b3e172c559f73fca2249a/packages/web/src/img/post-1.gif",
-    "tags": ["🇧🇷", "diagrama das diagonais", "diagrama de linus pauling", "distribuição eletrônica", "níveis e subníveis", "video"]
+    "tags": [
+      {
+        "id": 0,
+        "name": "🇧🇷"
+      },
+      {
+        "id": 1,
+        "name": "diagrama das diagonais"
+      },
+      {
+        "id": 2,
+        "name": "diagrama de linus pauling"
+      },
+      {
+        "id": 3,
+        "name": "distribuição eletrônica"
+      },
+      {
+        "id": 4,
+        "name": "níveis e subníveis"
+      },
+      {
+        "id": 5,
+        "name": "video"
+      }
+    ]
   },
   {
     "id": 3,
     "title": "Principais classificações das cadeias carbônicas",
     "image": "https://gitcdn.link/cdn/VitorGouveia/fobos/2f439d0672d2cc25a63b3e172c559f73fca2249a/packages/web/src/img/post-1.gif",
-    "tags": ["🇧🇷", "cadeias carbônicas", "classificação das cadeias carbônicas", "quadro", "química orgânica"]
+    "tags": [
+      {
+        "id": 0,
+        "name": "🇧🇷"
+      },
+      {
+        "id": 1,
+        "name": "cadeias carbônicas"
+      },
+      {
+        "id": 2,
+        "name": "classificação das cadeias carbônicas"
+      },
+      {
+        "id": 3,
+        "name": "quadro"
+      },
+      {
+        "id": 4,
+        "name": "química orgânica"
+      }
+    ]
   }
 ]
