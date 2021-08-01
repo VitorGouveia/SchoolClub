@@ -54,5 +54,9 @@ body {
         margin-bottom: $xxl;
       }
     }
+
+    aside {
+      grid-area: aside;
+    }
   }
 }

@@ -1,13 +1,10 @@
 @import "../../components/Global/styles";
 
 aside {
-  grid-area: aside;
   background: $gray-900;
-
   padding: $spacing-3;
 
   div {
-    
     &:nth-child(even) {
       margin: $xxl 0;
     }
@@ -146,6 +143,11 @@ aside {
         position: absolute;
         right: $xl;
         top: $xl;
+        transition: all 200ms;
+      }
+
+      &:hover::after {
+        background: $gray-500;
       }
 
       h4 {
