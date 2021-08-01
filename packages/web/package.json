@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "commit": "git-cz && release-it minor",
+    "commit": "git-cz && release-it -- patch",
     "release": "release-it",
     "start": "http-server build"
   },
