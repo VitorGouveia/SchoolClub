@@ -1,5 +1,4 @@
 import { FC } from "react"
-import { Redirect } from "react-router-dom"
 
 import "./styles.scss"
 
