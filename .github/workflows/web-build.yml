@@ -22,7 +22,7 @@ jobs:
         run: yarn
       - name: Predeploy
         working-directory: ./packages/web
-        run: yarn predeploy
+        run: CI=false yarn predeploy
       - name: deploy
         working-directory: ./packages/web
-        run: yarn deploy
+        run: CI=false yarn deploy
