@@ -11,6 +11,7 @@ export const Header = () => {
   const { cycleTheme, getTheme } = useContext(ThemeContext)
 
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setCurrentThemeIndex(getTheme().index), [document.body.getAttribute("data-theme")])
 
   const themes = {
