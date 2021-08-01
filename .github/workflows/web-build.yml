@@ -1,31 +1,28 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
-
+name: web:deploy
 on:
-  schedule:
-    - cron: "0 5 * * 1-5"
   push:
-    branches: [ master ]
     paths:
       - "packages/web/**"
-  pull_request:
-    branches: [ master ]
-    paths:
-      - "packages/web/**"
-
+    branches:
+      - master
 jobs:
-  build:
-
+  github-deploy:
+    name: github-deploy
     runs-on: ubuntu-latest
-    name: web-build
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      - run: ls
-      - run: yarn install
-      - run: yarn predeploy
-      - run: yarn deploy
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install deps
+        working-directory: ./packages/web
+        run: yarn
+      - name: Predeploy
+        working-directory: ./packages/web
+        run: yarn predeploy
+      - name: deploy
+        working-directory: ./packages/web
+        run: yarn deploy
