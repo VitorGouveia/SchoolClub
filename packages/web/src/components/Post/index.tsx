@@ -10,7 +10,7 @@ type Tags = {
 type PostProps = {
   title: string
   image: string
-  tags: Tags[] | string[]
+  tags: Tags[]
 }
 
 export const Post: FC<PostProps> = ({ title, image, tags }) => {
