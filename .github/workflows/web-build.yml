@@ -2,10 +2,8 @@
 name: web:deploy
 on:
   push:
-    paths:
-      - "packages/web/**"
-    branches:
-      - master
+    branches: [ master ] 
+    
 jobs:
   github-deploy:
     name: github-deploy
@@ -20,10 +18,10 @@ jobs:
       - uses: fregante/setup-git-user@v1
       - name: Install deps
         working-directory: ./packages/web
-        run: yarn
+        run: npm ci
       - name: Predeploy
         working-directory: ./packages/web
-        run: CI=false yarn predeploy
+        run: CI=false npm run predeploy
       - name: deploy
         working-directory: ./packages/web
-        run: CI=false yarn deploy
+        run: CI=false npm run deploy
