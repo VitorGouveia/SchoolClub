@@ -17,6 +17,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - uses: oleksiyrudenko/gha-git-credentials@v2.1
+        with:
+          global: true
+          name: 'vitorgouveia'
+          email: 'vitor.gouveia@aluno.etecjrm.com.br'
+          token: '${{ secrets.GITHUB_TOKEN }}'
       - name: Install deps
         working-directory: ./packages/web
         run: yarn
