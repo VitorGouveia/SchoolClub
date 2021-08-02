@@ -7,6 +7,10 @@ on:
     branches:
       - "master"
       
+defaults:
+  run:
+    working-directory: ./packages/web
+
 jobs:
   deploy:
     runs-on: ${{ matrix.os }}
@@ -28,11 +32,9 @@ jobs:
         run: yarn
         
       - name: Build
-        working-directory: ./packages/web
         run: yarn build
         
       - name: Deploy
-        working-directory: ./packages/web
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
