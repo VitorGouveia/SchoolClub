@@ -1,11 +1,11 @@
-name: web-deploy
+name: web deploy
 
 on:
   push:
     paths:
-      - "packages/web/**"
+      - "./packages/web/**"
     branches:
-      - "master"
+      -master
 
 jobs:
   build:
@@ -14,33 +14,23 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
+        node-version: [10.x, 12.x]
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      
-      - name: Install node.js & Yarn
+      - uses: actions/checkout@v1
+
+      - name: Use node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14
-      
-      - name: Install
+          node-version: ${{ matrix.node-version }}
+        
+      - name: Install packages
         run: yarn
-        
-      - name: Build
-        working-directory: ./packges/web
-        run: yarn build
-        
-  deploy:
-    name: deploy
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: deploy to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          working-directory: ./packages/web
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build
-    
+      
+      - name: deploy to github-pages
+        run: |
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.USERNAME }}
+          git remote set-url origin https://${{ secrets.PERSONAL_TOKEN }}@github.com/${{ secrets.USERNAME }}/${{ secrets.REPO }}.git
+          yarn predeploy
+          yarn deploy
