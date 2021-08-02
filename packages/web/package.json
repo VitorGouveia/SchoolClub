@@ -1,6 +1,6 @@
 {
   "name": "@fobos/web",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "private": true,
   "homepage": "https://vitorgouveia.github.io/fobos",
   "scripts": {
