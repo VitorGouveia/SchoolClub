@@ -1,0 +1,22 @@
+{
+  "hooks": {},
+  "git": {
+    "requireCleanWorkingDir": true,
+    "commit": true,
+    "commitMessage": "Release ${version}",
+    "commitArgs": [],
+    "tag": true,
+    "tagName": null,
+    "tagAnnotation": "Release ${version}",
+    "tagArgs": [],
+    "push": true,
+    "pushArgs": ["--follow-tags"],
+    "pushRepo": ""
+  },
+  "plugins": {
+  "@release-it/conventional-changelog": {
+    "preset": "angular",
+    "infile": "CHANGELOG.md"
+  }
+}
+}
