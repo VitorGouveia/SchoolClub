@@ -28,7 +28,7 @@ type Tag = {
   name: string
 }
 
-type Post = {
+type PostType = {
   id: number
   title: string
   tags: Tag[]
@@ -44,7 +44,7 @@ export const Loading = () => {
         </nav>
 
         <article>
-          {posts.map(post => <Post key={post.id} title={post.title} tags={post.tags} image={post.image} />)}
+          {posts.map((post: PostType) => <Post key={post.id} title={post.title} tags={post.tags} image={post.image} />)}
         </article>
 
         <Sidebar user={user} ad={ad} />
