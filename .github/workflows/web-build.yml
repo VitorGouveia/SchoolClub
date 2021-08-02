@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: ubuntu-latest
     
     steps:
       - name: Checkout
@@ -22,10 +22,10 @@ jobs:
       - name: Install node.js & Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: [14, 15]
       
       - name: Install
-        run: yarn i
+        run: yarn
         
       - name: Build
         working-directory: ./packages/web
