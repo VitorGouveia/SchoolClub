@@ -1,6 +1,6 @@
 {
   "name": "@fobos/web",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": true,
   "homepage": "https://vitorgouveia.github.io/fobos",
   "scripts": {
@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "commit": "git-cz && release-it -- patch",
+    "commit": "git-cz",
     "release": "release-it",
     "start": "http-server build"
   },
