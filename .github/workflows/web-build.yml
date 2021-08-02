@@ -6,10 +6,6 @@ on:
       - "packages/web/**"
     branches:
       - "master"
-      
-defaults:
-  run:
-    working-directory: ./packages/web
 
 jobs:
   build:
@@ -32,6 +28,7 @@ jobs:
         run: yarn
         
       - name: Build
+        working-directory: ./packages/web
         run: yarn build
         
   deploy:
@@ -40,9 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: see folder content
-        run: ls
-    
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v3
         with:
