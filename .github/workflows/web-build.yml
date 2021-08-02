@@ -28,7 +28,7 @@ jobs:
         run: yarn
       
       - name: deploy to github-pages
-        working-directory: ./packges/web
+        working-directory: ./packages/web
         run: |
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.USERNAME }}
