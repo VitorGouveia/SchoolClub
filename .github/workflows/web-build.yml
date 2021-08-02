@@ -1,27 +1,39 @@
+name: web-deploy
 
-name: web:deploy
 on:
   push:
-    branches: [ master ] 
-    
+    paths:
+      - "packages/web/**"
+    branches:
+      - "master"
+      
 jobs:
-  github-deploy:
-    name: github-deploy
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Install Node.js, NPM and Yarn
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+      - name: Install node.js & Yarn
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - uses: fregante/setup-git-user@v1
-      - name: Install deps
+      
+      - name: Install
+        run: yarn i
+        
+      - name: Build
         working-directory: ./packages/web
-        run: yarn
-      - name: Predeploy
-        working-directory: ./packages/web
-        run: CI=false yarn predeploy
-      - name: deploy
-        working-directory: ./packages/web
-        run: CI=false yarn deploy
+        run: yarn build
+        
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: build
+        
