@@ -22,7 +22,7 @@ jobs:
           git config --global user.name "${{ secrets.name }}"
           git config --global user.email "${{ secrets.email }}"
       - name: add git origin
-        run: git remote add origin git@github.com:VitorGouveia/fobos.git
+        run: git remote set-url origin git@github.com:VitorGouveia/fobos.git
       - name: Install deps
         working-directory: ./packages/web
         run: yarn
