@@ -3,9 +3,9 @@ name: web deploy
 on:
   push:
     paths:
-      - "./packages/web/**"
+      - "packages/web/**"
     branches:
-      - "master"
+      - master
 
 jobs:
   build:
@@ -28,6 +28,7 @@ jobs:
         run: yarn
       
       - name: deploy to github-pages
+        working-directory: ./packges/web
         run: |
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.USERNAME }}
