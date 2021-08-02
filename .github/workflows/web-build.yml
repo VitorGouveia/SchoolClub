@@ -17,12 +17,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Setup git user
-        run: |
-          git config --global user.name "${{ secrets.name }}"
-          git config --global user.email "${{ secrets.email }}"
-      - name: add git origin
-        run: git remote set-url origin git@github.com:VitorGouveia/fobos.git
+      - uses: fregante/setup-git-user@v1
       - name: Install deps
         working-directory: ./packages/web
         run: yarn
