@@ -5,7 +5,7 @@ on:
     paths:
       - "./packages/web/**"
     branches:
-      -master
+      - "master"
 
 jobs:
   build:
