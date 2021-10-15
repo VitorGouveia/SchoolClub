@@ -1,10 +1,21 @@
-import { FC, createContext, useState, ReactNode, useEffect } from "react"
+import { DefaultTheme, ThemeProvider } from "styled-components"
+import { FC, createContext, ReactNode } from "react"
+
+import { usePersistedState } from "../hooks/usePersistedState"
+import GlobalStyle from "../styles/global"
+
+import { dark, light } from "../styles/themes"
+
+const availableThemes = {
+  light: light,
+  dark: dark
+}
 
 type ThemeContextType = {
-  createTheme: (theme: keyof typeof availableThemes) => void
-  setTheme: (theme: keyof typeof availableThemes) => void
-  cycleTheme: () => void
-  getTheme: () => { index: number, name: string }
+  currentTheme: DefaultTheme
+  themes: keyof typeof availableThemes
+  toggleTheme: (theme: DefaultTheme) => void
+  getThemes: () => typeof availableThemes
 }
 
 export const ThemeContext = createContext({} as ThemeContextType)
@@ -13,71 +24,23 @@ type ThemeProviderProps = {
   children: ReactNode
 }
 
-const availableThemes = {
-  light: "light",
-  dark: "dark",
-  rgb: "rgb"
-}
-
-
 export const Theme: FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState("")
-  const defaultTheme = "dark"
+  const [currentTheme, setCurrentTheme] = usePersistedState<DefaultTheme>("theme", light)
+  const themes: keyof typeof availableThemes = "light" || "dark"
 
+  const getThemes = () => availableThemes
 
-  /** Set initial app theme */
-  useEffect(() => setTheme(localStorage.getItem("theme") || defaultTheme), [])
-
-  function createTheme(theme: keyof typeof availableThemes | string) {
-    let newTheme = theme
-
-    if(!availableThemes[theme]) {
-      newTheme = defaultTheme
-    }
-    
-    setTheme(newTheme)
+  const toggleTheme = (theme: DefaultTheme) => {
+    setCurrentTheme(theme.title === "light" ? dark : light)
   }
-
-  /** Just set theme in localStorage and body */
-  function setTheme(theme: keyof typeof availableThemes | string) {
-    /** Checking localStorage for theme */
-    setCurrentTheme(theme)
-
-    localStorage.setItem("theme", theme)
-    document.body.setAttribute("data-theme", theme)
-  }
-
-  /** This will cycle through all themes */
-  function cycleTheme() {
-    const themeArray: [keyof typeof availableThemes] | any[] = Object.keys(availableThemes)
-
-    const currentIndex = themeArray.indexOf(currentTheme)
-    const max = themeArray.length
-    let next  = currentIndex + 1
-
-    /** If next item reaches the max of the array, set it to the first array item */
-    if(next === max) next = 0
-
-    setTheme(themeArray[next])
-  }
-
-  function getTheme() {
-    const localTheme = localStorage.getItem("theme")
-    setCurrentTheme(localTheme!)
-
-    const themeArray = Object.keys(availableThemes)
-    const index = themeArray.indexOf(localTheme!)
-
-    return {
-      index,
-      name: localTheme!
-    }
-  }
-  window.addEventListener("storage", (event) => createTheme(event.newValue!))
 
   return (
-    <ThemeContext.Provider value={{ createTheme, setTheme, cycleTheme, getTheme }}>
-      {children}
+    <ThemeContext.Provider value={{ currentTheme, themes, toggleTheme, getThemes }}>
+      <ThemeProvider theme={currentTheme}>
+        {children}
+
+        <GlobalStyle />
+      </ThemeProvider>
     </ThemeContext.Provider>
   )
 } 

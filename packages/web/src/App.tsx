@@ -1,31 +1,27 @@
-import { Suspense } from 'react';
-import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
-import { Theme } from "./contexts/ThemeContext"
-import { PWA } from "./pwa"
+import { Theme } from './contexts/ThemeContext';
+import { register } from './pwa/serviceWorkerRegistration';
 
-import { Home, Loading } from './pages';
-
-import { GlobalStyles } from './components/Global';
+import { Router } from './router';
 
 export const App = () => {
-  return (
-    <HashRouter>
-      <Switch>
-        <Suspense fallback={Loading}>
-          <PWA>
-            <GlobalStyles>
-              <Theme>
-                <Route exact path="/" component={() => <Home />} />
-                <Route exact path="/loading" component={() => <Loading />} />
-                <Route exact path="/fobos">
-                  <Redirect to="/" />
-                </Route> 
-              </Theme>
-            </GlobalStyles>
-          </PWA>
-        </Suspense>
-      </Switch>
-    </HashRouter>
-  );
+	useEffect(() => {
+		register();
+	}, []);
+
+	return (
+		<Router>
+			<Theme>
+				<Suspense fallback={() => <h1>aaaa</h1>}>
+					<Route exact path="/" component={() => <h1>aaaaaaaa</h1>} />
+					{/* <Route exact path="/loading" component={() => <Loading />} />
+          <Route exact path="/fobos">
+            <Redirect to="/" />
+          </Route> */}
+				</Suspense>
+			</Theme>
+		</Router>
+	);
 };
