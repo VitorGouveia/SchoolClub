@@ -1,5 +1,17 @@
-export const dark = {
+import { theme } from "./default"
+
+export const dark: typeof theme = {
+  ...theme,
+
   title: "dark",
+
+  fonts: {
+    ...theme.fonts,
+  },
+
+  sizes: {
+    ...theme.sizes,
+  },
 
   colors: {
     accent: {
@@ -17,7 +29,7 @@ export const dark = {
       600: "#323D4D",
       700: "#242C37",
       800: "#151A21",
-      900: "#0B0E11",
+      900: "#161719",
     }
   }
 }

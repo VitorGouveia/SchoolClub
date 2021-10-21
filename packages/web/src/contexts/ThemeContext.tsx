@@ -1,14 +1,15 @@
+import { createContext, FC, ReactNode } from "react"
 import { DefaultTheme, ThemeProvider } from "styled-components"
-import { FC, createContext, ReactNode } from "react"
-
+/*  */
 import { usePersistedState } from "../hooks/usePersistedState"
 import GlobalStyle from "../styles/global"
-
 import { dark, light } from "../styles/themes"
 
+
+
 const availableThemes = {
-  light: light,
-  dark: dark
+  light,
+  dark
 }
 
 type ThemeContextType = {

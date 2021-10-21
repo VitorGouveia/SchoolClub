@@ -4,8 +4,8 @@ import { FontSizeContext } from "../contexts";
 export const useClamp = (min: string, max: string) => {
   const { rootFontSize } = useContext(FontSizeContext)
   
-  const minFontSize = Number(min.slice(0, -3));
-  const maxFontSize = Number(max.slice(0, -3));
+  const minFontSize = Number(min.split("rem")[0]);
+  const maxFontSize = Number(max.split("rem")[0]);
 
   const minWidth = 270 / rootFontSize;
   const maxWidth = 1920 / rootFontSize;

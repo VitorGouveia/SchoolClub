@@ -1,16 +1,12 @@
-import { theme } from "./default"
-
-export const light: typeof theme = {
-  ...theme,
-
-  title: "light",
+export const theme = {
+  title: "default",
 
   fonts: {
-    ...theme.fonts,
+    DM: "'DM Sans', sans-serif"
   },
 
   sizes: {
-    ...theme.sizes,
+    sm: "3.125rem"
   },
 
   colors: {

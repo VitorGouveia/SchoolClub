@@ -1,12 +1,14 @@
 import { FC } from "react"
-import { useClamp } from "../../hooks/useClamp"
+/*  */
+import { Header } from "../../components"
 
-export const Home: FC = () => {
-  console.log(useClamp("2rem", "32rem"))
-
+const Home: FC = () => {
   return (
     <div>
-      <h1>aaaaa</h1>
+      <Header />
+      <h1>d</h1>
     </div>
   )
 }
+
+export default Home
