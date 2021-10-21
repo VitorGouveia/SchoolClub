@@ -1,23 +1,19 @@
 {
   "files": {
-    "main.css": "/fobos/static/css/main.6f44ca13.chunk.css",
-    "main.js": "/fobos/static/js/main.915dd0ce.chunk.js",
-    "main.js.map": "/fobos/static/js/main.915dd0ce.chunk.js.map",
+    "main.js": "/fobos/static/js/main.30d5806e.chunk.js",
+    "main.js.map": "/fobos/static/js/main.30d5806e.chunk.js.map",
     "runtime-main.js": "/fobos/static/js/runtime-main.ef139769.js",
     "runtime-main.js.map": "/fobos/static/js/runtime-main.ef139769.js.map",
-    "static/js/2.9a632b9e.chunk.js": "/fobos/static/js/2.9a632b9e.chunk.js",
-    "static/js/2.9a632b9e.chunk.js.map": "/fobos/static/js/2.9a632b9e.chunk.js.map",
+    "static/js/2.cbe50f0b.chunk.js": "/fobos/static/js/2.cbe50f0b.chunk.js",
+    "static/js/2.cbe50f0b.chunk.js.map": "/fobos/static/js/2.cbe50f0b.chunk.js.map",
     "index.html": "/fobos/index.html",
     "service-worker.js": "/fobos/service-worker.js",
     "service-worker.js.map": "/fobos/service-worker.js.map",
-    "static/css/main.6f44ca13.chunk.css.map": "/fobos/static/css/main.6f44ca13.chunk.css.map",
-    "static/js/2.9a632b9e.chunk.js.LICENSE.txt": "/fobos/static/js/2.9a632b9e.chunk.js.LICENSE.txt",
-    "static/media/parallax-bg.28ba6662.jpg": "/fobos/static/media/parallax-bg.28ba6662.jpg"
+    "static/js/2.cbe50f0b.chunk.js.LICENSE.txt": "/fobos/static/js/2.cbe50f0b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ef139769.js",
-    "static/js/2.9a632b9e.chunk.js",
-    "static/css/main.6f44ca13.chunk.css",
-    "static/js/main.915dd0ce.chunk.js"
+    "static/js/2.cbe50f0b.chunk.js",
+    "static/js/main.30d5806e.chunk.js"
   ]
 }
