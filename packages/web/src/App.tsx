@@ -1,9 +1,10 @@
 import { Suspense, useEffect } from 'react';
-import { Redirect, Route } from 'react-router-dom';
-
-import { Theme } from './contexts/ThemeContext';
+import { Route } from 'react-router-dom';
+/*  */
+import { FontSize, Theme } from "./contexts";
+/*  */
+import { Home } from "./pages/Home";
 import { register } from './pwa/serviceWorkerRegistration';
-
 import { Router } from './router';
 
 export const App = () => {
@@ -13,15 +14,17 @@ export const App = () => {
 
 	return (
 		<Router>
-			<Theme>
-				<Suspense fallback={() => <h1>aaaa</h1>}>
-					<Route exact path="/" component={() => <h1>aaaaaaaa</h1>} />
-					{/* <Route exact path="/loading" component={() => <Loading />} />
-          <Route exact path="/fobos">
-            <Redirect to="/" />
-          </Route> */}
-				</Suspense>
-			</Theme>
+			<FontSize>
+				<Theme>
+					<Suspense fallback={() => <h1>aaaa</h1>}>
+						<Route exact path="/" component={() => <Home />} />
+						{/* <Route exact path="/loading" component={() => <Loading />} />
+						<Route exact path="/fobos">
+						<Redirect to="/" />
+					</Route> */}
+					</Suspense>
+				</Theme>
+			</FontSize>
 		</Router>
 	);
 };
