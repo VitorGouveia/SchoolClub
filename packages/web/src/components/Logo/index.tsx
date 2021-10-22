@@ -18,7 +18,7 @@ type LogoProps = {
 export const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
   const { currentTheme } = useTheme()
 
-  const logoMarginLeft = useClamp("2rem", "3rem")
+  const logoMarginLeft = useClamp("0.1rem", "2rem")
   const logoTitleFontSize = useClamp("0.8rem", "1.25rem")
 
   const LogoImg = useMemo(() => (
@@ -40,7 +40,7 @@ export const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
   ), [currentTheme.colors.accent, currentTheme.colors.gray, logoMarginLeft, size])
 
   const LogoName = useMemo(() => (
-    <LogoTitle fontSizeClamp={logoTitleFontSize}>
+    <LogoTitle tabIndex={1} fontSizeClamp={logoTitleFontSize}>
       School<strong>Club</strong>
     </LogoTitle>
   ), [logoTitleFontSize])
