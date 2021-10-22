@@ -26,7 +26,7 @@ type ThemeProviderProps = {
 }
 
 export const Theme: FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = usePersistedState<DefaultTheme>("theme", light)
+  const [currentTheme, setCurrentTheme] = usePersistedState<DefaultTheme>("theme", dark)
   const themes: keyof typeof availableThemes = "light" || "dark"
 
   const getThemes = () => availableThemes
