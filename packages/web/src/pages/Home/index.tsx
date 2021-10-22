@@ -1,13 +1,14 @@
 import { FC } from "react"
 /*  */
 import { Header } from "../../components"
+import { Container } from "./styles"
 
 const Home: FC = () => {
   return (
-    <div>
+    <Container>
       <Header />
       <h1>d</h1>
-    </div>
+    </Container>
   )
 }
 

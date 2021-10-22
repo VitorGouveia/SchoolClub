@@ -11,11 +11,11 @@ export const App = () => {
 	useEffect(() => {
 		register();
 	}, []);
-
-	{/* <Route exact path="/loading" component={() => <Loading />} />
-						<Route exact path="/fobos">
-						<Redirect to="/" />
-					</Route> */}
+	// <Route exact path="/loading" component={() => <Loading />} />
+						
+	// 					<Route exact path="/fobos">
+	// 						<Redirect to="/" />
+	// 					</Route>
 
 	return (
 		<Router>
