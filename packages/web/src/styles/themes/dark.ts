@@ -1,4 +1,7 @@
+import { darken, lighten } from "polished"
 import { theme } from "./default"
+
+const accent = "#FD4D4D"
 
 export const dark: typeof theme = {
   ...theme,
@@ -15,20 +18,21 @@ export const dark: typeof theme = {
 
   colors: {
     accent: {
-      100: "#FD6868",
-      200: "#FD4D4D"
+      100: lighten(0.1, accent),
+      200: accent,
+      300: darken(0.1, accent)
     },
 
     gray: {
       50: "#fafafa",
       100: "#DEE3EA",
-      200: "#B2BDCD",
+      200: "#F1F1FA",
       300: "#5D7290",
       400: "#4F617A",
       500: "#404F64",
-      600: "#323D4D",
-      700: "#242C37",
-      800: "#151A21",
+      600: "#91919F",
+      700: "#4A4A4A",
+      800: "#212325",
       900: "#161719",
     }
   }

@@ -12,7 +12,8 @@ export const theme = {
   colors: {
     accent: {
       100: "#FD6868",
-      200: "#FD4D4D"
+      200: "#FD4D4D",
+      300: ""
     },
 
     gray: {
