@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
 
 export default createGlobalStyle`
   * {
@@ -11,9 +11,12 @@ export default createGlobalStyle`
   html, body {
     width: 100%;
     height: 100%;
-
-    color: ${props => props.theme.colors.gray[50]};
-    background: ${props => props.theme.colors.gray[600]}
+    
+    ${({ theme: { colors, fonts } }) => css`
+      font-family: ${fonts.Rubik};
+      color: ${colors.gray[50]};
+      background: ${colors.gray[600]}
+    `}
   }
 
   ul {

@@ -2,7 +2,8 @@ export const theme = {
   title: "default",
 
   fonts: {
-    DM: "'DM Sans', sans-serif"
+    DM: "'DM Sans', sans-serif",
+    Rubik: "'Rubik', sans-serif"
   },
 
   sizes: {
