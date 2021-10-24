@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, FC } from "react"
+import { AnchorHTMLAttributes, FC, memo } from "react"
 import { Link as Anchor } from "react-router-dom"
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -6,7 +6,7 @@ interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
 }
 
-export const Link: FC<LinkProps> = ({ children, name, href, ...rest }) => {
+const Link: FC<LinkProps> = ({ children, name, href, ...rest }) => {
   return (
     <Anchor 
       to={href}
@@ -20,3 +20,5 @@ export const Link: FC<LinkProps> = ({ children, name, href, ...rest }) => {
     </Anchor>
   )
 }
+
+export default memo(Link)

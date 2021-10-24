@@ -1,14 +1,19 @@
-import { FC } from "react"
+import { FC, memo } from "react"
 /*  */
 import { Button, Link, Logo } from ".."
 import { useClamp } from "../../hooks"
 import { ActionContainer, Container, LogoContainer, Nav, NavigationContainer, NavItem } from "./styles"
 
-export const Header: FC = () => {
+type HeaderProps = {
+  headerRef: any
+  // ref: ((instance: HTMLElement | null) => void) | RefObject<HTMLElement> | null | undefined
+}
+
+const Header: FC<HeaderProps> = ({ headerRef }) => {
   const headerPaddingBlock = useClamp("0.75rem", "1.25rem")
   
   return (
-    <Container paddingBlockClamp={headerPaddingBlock}>
+    <Container ref={headerRef} paddingBlockClamp={headerPaddingBlock}>
       <NavigationContainer>
         <LogoContainer>
           <Logo size={64} variant="full" />
@@ -36,3 +41,5 @@ export const Header: FC = () => {
     </Container>
   )
 }
+
+export default memo(Header)

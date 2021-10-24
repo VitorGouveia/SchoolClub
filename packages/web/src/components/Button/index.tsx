@@ -1,24 +1,40 @@
-import { FC, useEffect, useState } from "react"
-import { useClamp, useTheme } from "../../hooks"
+import { FC, memo, useEffect, useRef, useState } from "react"
 /*  */
-import { Link } from "../Link"
+import { Link } from ".."
+import { useClamp, useTheme } from "../../hooks"
 import { ButtonContainer } from "./styles"
 
 type ButtonProps = {
   variant?: "primary" | "secondary" | "tertiary" | "outlined"
   href: string
   name: string
+  type?: "button" | "submit" | "reset"
+  disabled?: boolean
+  loading?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ children, variant = "primary", href, name }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  variant = "primary",
+  href,
+  name,
+  type = "button",
+  loading = false,
+  disabled = false
+}) => {
+  const [isLoading, setIsLoading] = useState(loading)
+  const ButtonRef = useRef<HTMLButtonElement | null>(null)
+
   const { currentTheme } = useTheme()
   const [background, setBackground] = useState(currentTheme.colors.accent[200])
   const [outlined, setOutlined] = useState(false)
   
+  const fontSize = useClamp("0.5rem", "1rem")
+  
   useEffect(() => {
     setOutlined(variant === "outlined" || variant === "secondary")
   }, [variant])
-  console.log({outlined})
+  
   useEffect(() => {
     switch (variant) {
       case "primary":
@@ -42,18 +58,34 @@ export const Button: FC<ButtonProps> = ({ children, variant = "primary", href, n
         break
     }
   }, [currentTheme.colors.accent, currentTheme.colors.gray, variant])
+
+  useEffect(() => {
+    ButtonRef.current?.addEventListener("click", () => {
+      setIsLoading(!isLoading)
+    })
+  }, [isLoading])
   
   return (
     <ButtonContainer
       tabIndex={-1}
+      ref={ButtonRef}
+      type={type}
+      active={isLoading}
+      loading={isLoading}
+      disabled={disabled}
       outlined={outlined}
+      fontSize={fontSize}
       backgroundColor={background}
       paddingBlockClamp={useClamp("0.2rem", "0.8rem")}
       paddingHorizontalClamp={useClamp("1rem", "1.875rem")}
     >
       <Link href={href} name={name}>
-        {children}
+        <span>
+          {children}
+        </span>
       </Link>
     </ButtonContainer>
   )
 }
+
+export default memo(Button)

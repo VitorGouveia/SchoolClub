@@ -1,4 +1,17 @@
-import { createGlobalStyle, css } from "styled-components"
+import styled, { createGlobalStyle, css } from "styled-components"
+
+type MainProps = {
+  paddingTop: number
+}
+
+export const Main = styled.main<MainProps>`
+  padding-top: ${({paddingTop }) => paddingTop}px;
+
+  background: ${props => props.theme.colors.gray[800]};
+
+  width: 100%;
+  height: 100%;
+`
 
 export default createGlobalStyle`
   * {

@@ -1,15 +1,9 @@
-import { FC } from "react"
-/*  */
-import { Header } from "../../components"
-import { Container } from "./styles"
+import { FC, memo } from "react"
 
 const Home: FC = () => {
   return (
-    <Container>
-      <Header />
-      <h1>d</h1>
-    </Container>
+    <h1>d</h1>
   )
 }
 
-export default Home
+export default memo(Home)

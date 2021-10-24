@@ -7,6 +7,8 @@ type ContainerProps = {
 export const Container = styled.header<ContainerProps>`
   width: 100%;
 
+  position: fixed;
+
   display: grid;
   
   place-items: center;

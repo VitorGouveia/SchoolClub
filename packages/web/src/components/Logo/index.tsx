@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react"
+import { FC, memo, useEffect, useMemo, useState } from "react"
 import { Link } from "../../components"
 /*  */
 import { useClamp, useTheme } from "../../hooks"
@@ -16,7 +16,7 @@ type LogoProps = {
   size?: number | string 
 }
 
-export const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
+const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
   const { currentTheme } = useTheme()
 
   const logoMarginLeft = useClamp("0.1rem", "2rem")
@@ -92,3 +92,5 @@ export const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
     </>
   )
 }
+
+export default memo(Logo)
