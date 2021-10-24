@@ -12,7 +12,7 @@ export const Link: FC<LinkProps> = ({ children, name, href, ...rest }) => {
       to={href}
       href={href}
       {...rest}
-      aria-label={name.replace("", "-")}
+      aria-label={name}
       rel="noopener noreferrer"
       data-reset
     >

@@ -1,9 +1,8 @@
 import { FC } from "react"
 /*  */
-import { Link } from ".."
+import { Button, Link, Logo } from ".."
 import { useClamp } from "../../hooks"
-import { Logo } from "../Logo"
-import { Container, LogoContainer, Nav, NavigationContainer, NavItem } from "./styles"
+import { ActionContainer, Container, LogoContainer, Nav, NavigationContainer, NavItem } from "./styles"
 
 export const Header: FC = () => {
   const headerPaddingBlock = useClamp("0.75rem", "1.25rem")
@@ -28,6 +27,11 @@ export const Header: FC = () => {
             <Link href="#Study" name="Study">Study</Link>
           </NavItem>
         </Nav>
+
+        <ActionContainer>
+          <Button href="#login" name="Login" variant="secondary">Login</Button>
+          <Button href="#signup" name="Sign Up" variant="primary">Sign Up</Button>
+        </ActionContainer>
       </NavigationContainer>
     </Container>
   )

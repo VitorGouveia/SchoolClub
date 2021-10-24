@@ -56,3 +56,12 @@ export const NavItem = styled.li`
     }
   }
 `
+
+export const ActionContainer = styled.section`
+  grid-area: buttons;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+`

@@ -8,23 +8,57 @@ type ButtonContainerProps = {
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
-  position: relative;
+  border: 0;
+  outline: 0;
+  background: none;
+
+  a {
+    position: relative;
+    
+    font-weight: 600;
+    color: ${props => props.theme.colors.gray[50]};
+
+    border-radius: 5px;
+  }
 
   ${props => css`
-    padding: ${props.paddingBlockClamp} ${props.paddingHorizontalClamp};
-    background: ${props.backgroundColor};
+    a {
+      padding: ${props.paddingBlockClamp} ${props.paddingHorizontalClamp};
+    }
   `}
 
   ${props => props.outlined ? 
     css`
-      background: transparent;
-      border: 3px solid;
-      border-color: ${props.backgroundColor};
-    `
+      a {  
+        padding calc(${props.paddingBlockClamp} - 3px) ${props.paddingHorizontalClamp};
+        border: 3px solid;
+        border-color: ${props.backgroundColor};
+
+        background-color: ${props.theme.colors.gray[100]};
+        background-image: linear-gradient(to right, ${props.backgroundColor}, ${props.backgroundColor});
+        background-size: 100vh 0%;
+        background-repeat: no-repeat;
+        background-position: right;
+        color: ${props.theme.colors.gray[800]};
+
+        transition: all 200ms;
+      
+        &:hover, &:focus {
+          color: ${props.theme.colors.gray[50]};
+          background-size: 100% 100%;
+        }
+      }
+      `
     : 
     css`
-      border: none;
-      background: ${props.backgroundColor}
-    `
+      a {
+        border: none;
+        background: ${props.backgroundColor} !important;
+      }
+      `
+    }
+
+  &:hover {
+    cursor: pointer;
   }
 `
