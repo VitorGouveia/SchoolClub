@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 type ContainerProps = {
   paddingBlockClamp: string
@@ -38,5 +38,21 @@ export const Nav = styled.ul`
 `
 
 export const NavItem = styled.li`
+  a {
+    font-weight: 500;
+    position: relative;
 
+    ${({ theme: { colors: { accent } } }) => css`
+      background-image: linear-gradient(to right, ${accent[200]}, ${accent[100]});
+    `}
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding: 0.2rem;
+    transition: all 320ms cubic-bezier(0.215, 0.610, 0.355, 1);
+
+    &:hover, &:focus {
+      background-size: 100% 100%;
+    }
+  }
 `
