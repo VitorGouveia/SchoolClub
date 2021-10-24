@@ -2,19 +2,19 @@
   "files": {
     "main.js": "/fobos/static/js/main.c97e9737.chunk.js",
     "main.js.map": "/fobos/static/js/main.c97e9737.chunk.js.map",
-    "runtime-main.js": "/fobos/static/js/runtime-main.13f6b186.js",
-    "runtime-main.js.map": "/fobos/static/js/runtime-main.13f6b186.js.map",
+    "runtime-main.js": "/fobos/static/js/runtime-main.386a9d5d.js",
+    "runtime-main.js.map": "/fobos/static/js/runtime-main.386a9d5d.js.map",
     "static/js/2.02405954.chunk.js": "/fobos/static/js/2.02405954.chunk.js",
     "static/js/2.02405954.chunk.js.map": "/fobos/static/js/2.02405954.chunk.js.map",
-    "static/js/3.2a6c646a.chunk.js": "/fobos/static/js/3.2a6c646a.chunk.js",
-    "static/js/3.2a6c646a.chunk.js.map": "/fobos/static/js/3.2a6c646a.chunk.js.map",
+    "static/js/3.72fdb982.chunk.js": "/fobos/static/js/3.72fdb982.chunk.js",
+    "static/js/3.72fdb982.chunk.js.map": "/fobos/static/js/3.72fdb982.chunk.js.map",
     "index.html": "/fobos/index.html",
     "service-worker.js": "/fobos/service-worker.js",
     "service-worker.js.map": "/fobos/service-worker.js.map",
     "static/js/2.02405954.chunk.js.LICENSE.txt": "/fobos/static/js/2.02405954.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.13f6b186.js",
+    "static/js/runtime-main.386a9d5d.js",
     "static/js/2.02405954.chunk.js",
     "static/js/main.c97e9737.chunk.js"
   ]
