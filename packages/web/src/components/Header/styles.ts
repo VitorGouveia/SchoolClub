@@ -13,8 +13,10 @@ export const Container = styled.header<ContainerProps>`
   
   place-items: center;
 
-  background: ${props => props.theme.colors.gray[900]};
+  background: ${props => props.theme.colors.gray[800]};
   padding: ${props => props.paddingBlockClamp} 0;
+
+  border-bottom: 1px solid ${props => props.theme.colors.gray[700]};
 `
 
 export const NavigationContainer = styled.nav`

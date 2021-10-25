@@ -63,7 +63,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
         background-repeat: no-repeat;
         background-position: right;
         
-        color: ${props.theme.colors.gray[800]};
+        color: ${props.theme.colors.gray[700]};
 
         transition: all 200ms;
         
@@ -90,7 +90,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
           &:hover, &:focus {
             background: ${lighten(0.2, props.backgroundColor)} !important;
           }
-          `}
+        `}
           
         ${props.active && css`
           background: ${lighten(0.2, props.backgroundColor)} !important;
