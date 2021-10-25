@@ -1,0 +1,2 @@
+(this["webpackJsonp@fobos/web"]=this["webpackJsonp@fobos/web"]||[]).push([[3],{39:function(e,s,t){"use strict";t.r(s);var o=t(0),b=t(1),c=function(){return Object(b.jsx)("h1",{children:"d"})};s.default=Object(o.memo)(c)}}]);
+//# sourceMappingURL=3.da8e1401.chunk.js.map

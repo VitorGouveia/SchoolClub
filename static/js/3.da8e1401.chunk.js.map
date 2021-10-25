@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/Home/index.tsx"],"names":["Home","memo"],"mappings":"+GAAA,yBAEMA,EAAW,WACf,OACE,oCAIWC,yBAAKD","file":"static/js/3.da8e1401.chunk.js","sourcesContent":["import { FC, memo } from \"react\"\n\nconst Home: FC = () => {\n  return (\n    <h1>d</h1>\n  )\n}\n\nexport default memo(Home)"],"sourceRoot":""}
