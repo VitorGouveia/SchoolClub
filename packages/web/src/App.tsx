@@ -8,6 +8,7 @@ import { Router } from './router';
 import { Main } from "./styles/global";
 /*  */
 const Home = lazy(() => import("./pages/Home"))
+const Login = lazy(() => import("./pages/Auth/Login"))
 
 export const App = () => {
 	const [headerHeight, setHeaderHeight] = useState(0)
@@ -38,6 +39,8 @@ export const App = () => {
 						
 						<Main paddingTop={headerHeight}>
 							<Route exact path="/" component={() => <Home />} />
+
+							<Route path="/login" component={() => <Login />} />
 						</Main>
 					</Suspense>
 				</Theme>

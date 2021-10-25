@@ -23,8 +23,8 @@ const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
   const logoTitleFontSize = useClamp("0.8rem", "1.25rem")
 
   const LogoImg = useMemo(() => (
-    <Link data-link="icon" tabIndex={1} href="/" name="homepage">
-      <SvgLogo marginLeftClamp={logoMarginLeft} width={size} height={size} viewBox={`0 0 66 64`} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <Link data-link="icon" href="/" name="homepage">
+      <SvgLogo marginLeftClamp={variant === "img" ? "0px" : logoMarginLeft } width={size} height={size} viewBox={`0 0 66 64`} fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_536:2834)">
           <path
             id="background"
@@ -39,10 +39,10 @@ const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
         </g>
       </SvgLogo>
     </Link>
-  ), [currentTheme.colors.accent, currentTheme.colors.gray, logoMarginLeft, size])
+  ), [currentTheme.colors.accent, currentTheme.colors.gray, logoMarginLeft, size, variant])
 
   const LogoName = useMemo(() => (
-    <Link data-link="title" tabIndex={2} href="/" name="homepage">
+    <Link data-link="title" href="/" name="homepage">
       <LogoTitle fontSizeClamp={logoTitleFontSize}>
         School<strong>Club</strong>
       </LogoTitle>

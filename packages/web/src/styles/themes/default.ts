@@ -11,6 +11,8 @@ export const theme = {
   },
 
   colors: {
+    red: "#E96379",
+
     accent: {
       100: "#FD6868",
       200: "#FD4D4D",

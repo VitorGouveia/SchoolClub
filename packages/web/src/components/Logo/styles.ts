@@ -61,7 +61,6 @@ type SvgProps = {
 }
 
 export const SvgLogo = styled.svg<SvgProps>`
-  background: ${props => props.theme.colors.gray[900]};
   cursor: pointer;
   margin-right: ${props => props.marginLeftClamp};
 

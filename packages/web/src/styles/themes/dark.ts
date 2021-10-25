@@ -17,6 +17,8 @@ export const dark: typeof theme = {
   },
 
   colors: {
+    ...theme.colors,
+
     accent: {
       100: lighten(0.1, accent),
       200: accent,
@@ -32,7 +34,7 @@ export const dark: typeof theme = {
       500: "hsl(220, 6%, 50%)",
       600: "hsl(220, 6%, 40%)",
       700: "hsl(220, 6%, 30%)",
-      800: "hsl(220, 6%, 20%)",
+      800: "hsl(220, 6%, 12%)",
       900: "hsl(220, 6%, 9%)",
     }
   }
