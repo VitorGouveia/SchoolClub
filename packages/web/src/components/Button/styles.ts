@@ -53,15 +53,16 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   ${props => props.outlined ? 
     css`
       a {  
-        padding calc(${props.paddingBlockClamp} - 3px) calc(${props.paddingHorizontalClamp} - 3px);
-        border: 3px solid;
-        border-color: ${props.backgroundColor};
+        padding calc(${props.paddingBlockClamp} - 2px) calc(${props.paddingHorizontalClamp} - 3px);
 
-        background-color: ${props.theme.colors.gray[100]};
+        border: 2px solid ${props.backgroundColor};
+        box-shadow: 0px 2px 5px 3px black;
+
         background-image: linear-gradient(to right, ${props.backgroundColor}, ${props.backgroundColor});
         background-size: 100% 0%;
         background-repeat: no-repeat;
         background-position: right;
+        
         color: ${props.theme.colors.gray[800]};
 
         transition: all 200ms;
@@ -71,7 +72,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
             color: ${props.theme.colors.gray[50]};
             background-size: 100% 100%;
           }
-          `}
+        `}
           
         ${props.active && css`
           color: ${props.theme.colors.gray[50]};

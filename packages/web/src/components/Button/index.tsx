@@ -1,10 +1,11 @@
-import { FC, memo, useEffect, useRef, useState } from "react"
+import { FC, memo, ReactNode, useEffect, useRef, useState } from "react"
 /*  */
 import { Link } from ".."
 import { useClamp, useTheme } from "../../hooks"
 import { ButtonContainer } from "./styles"
 
 type ButtonProps = {
+  children: ReactNode
   variant?: "primary" | "secondary" | "tertiary" | "outlined"
   href: string
   name: string
