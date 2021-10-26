@@ -50,6 +50,9 @@ export default createGlobalStyle`
   }
 
   :focus {
-    /* outline: 0; */
+    outline: 2px solid ${props => props.theme.colors.accent[100]};
+    outline-offset: 4px;
+    border-radius: 5px;
+    /* -moz-outline-radius: 5px; */
   }
 `
