@@ -128,7 +128,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
       }
 
       /* add this so the PC will use hardware acceleration */
-      will-change: transform;
+      /* will-change: transform; */
       transform: translateY(-5px);
 
       transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
@@ -243,7 +243,7 @@ export const Shadow = styled.span`
   border-radius: 5px;
   filter: blur(4px);
   
-  will-change: transform;
+  /* will-change: transform; */
 
   background: hsl(0deg 0% 0% / 0.25);
   transform: translateY(2px);

@@ -66,8 +66,7 @@ const Button: FC<ButtonProps> = ({
     ButtonRef.current?.addEventListener("click", () => {
       setIsLoading(!isLoading)
     })
-  }, [isLoading])
-  
+  }, [])
   return (
     <ButtonContainer
       D={D}
