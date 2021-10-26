@@ -11,16 +11,25 @@ const Home = lazy(() => import("./pages/Home"))
 const Login = lazy(() => import("./pages/Auth/Login"))
 
 export const App = () => {
-	const [headerHeight, setHeaderHeight] = useState(0)
 	const HeaderRef = useRef<any>(null)
-
+	
+	const [headerHeight, setHeaderHeight] = useState(() => {
+		return HeaderRef?.current?.offsetHeight || 0
+	})
+	
 	useEffect(() => {
 		register();
 	}, []);
-	
+
 	useLayoutEffect(() => {
 		document.onreadystatechange = () => {
-			setHeaderHeight(HeaderRef?.current?.offsetHeight || 0)
+			const resizeObserver = new ResizeObserver(entries => {
+				const newHeight = entries[0].target.clientHeight
+				
+				setHeaderHeight(newHeight)
+			})
+
+			resizeObserver.observe(document.querySelector("header")!)
 		};
 	}, [HeaderRef])
 
