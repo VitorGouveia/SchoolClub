@@ -6,7 +6,7 @@ type ButtonContainerProps = {
   paddingHorizontalClamp: string
   outlined: boolean
   backgroundColor: string
-  fontSize: string
+  fontSizeClamp: string
   loading: boolean
   active: boolean
   D: boolean
@@ -21,6 +21,40 @@ const loadingSpinner = keyframes`
     transform: rotate(1turn);
   }
 `
+
+const outlinedButton = (paddingBlock: string, paddingHorizontal: string, backgroundColor: string, gray50: string, gray700: string, disabled: boolean, D: boolean, active: boolean) => {
+  const fullButton = css`
+    color: ${gray50};
+    background-size: 100% 100%;
+  `
+
+  return css`
+    /* reduce border width from padding */
+    padding: calc(${paddingBlock} - 2px) calc(${paddingHorizontal} - 3px);
+
+    border: 2px solid ${backgroundColor};
+
+    background-image: linear-gradient(to right, ${backgroundColor}, ${backgroundColor});
+    background-size: 100% 0%;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    color: ${gray700};
+
+    transition: all 200ms;
+
+    ${disabled === false && css`
+      &:hover, &:focus {
+        color: ${gray50};
+        background-size: 100% 100%;
+      }
+    `}
+
+    ${active && css`
+      ${fullButton}
+    `}
+  `
+}
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   border: 0;
@@ -40,7 +74,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     `}
     
     font-weight: 600;
-    font-size: ${props => props.fontSize};
+    font-size: ${props => props.fontSizeClamp};
     color: ${props => props.theme.colors.gray[50]};
 
     border-radius: 5px;
@@ -58,90 +92,97 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   }
 
   ${props => props.D === true && css`
-      background: hsl(340deg 100% 32%);
-      outline-offset: 4px;
-      border-radius: 5px;
+    background: hsl(340deg 100% 32%);
+    outline-offset: 4px;
+    border-radius: 5px;
+    transition: filter 250ms;
+
+    a {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      
+      ${props.outlined
+        ? css`
+          ${outlinedButton(
+            props.paddingBlockClamp,
+            props.paddingHorizontalClamp,
+            props.backgroundColor,
+            props.theme.colors.gray[50],
+            props.theme.colors.gray[700],
+            props.disabled || false,
+            props.D,
+            props.active
+          )}
+
+          /* text-shadow: -1px -1px 0 rgb(26 26 26 / 50%); */
+        `
+        
+        : css`
+          border: 0 !important;
+          box-shadow: none !important;
+
+          background: hsl(345deg 100% 47%);
+        `
+      }
+
+      /* add this so the PC will use hardware acceleration */
+      will-change: transform;
+      transform: translateY(-5px);
+
+      transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    }
+
+    &:hover {
       transition: filter 250ms;
+      filter: brightness(110%);
 
+      /* remove IOS tap hightlight */
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      
       a {
-        width: 100%;
-        height: 100%;
+        color: ${props => props.theme.colors.gray[50]};
+        background-size: 100% 100%;
 
-        border: 0 !important;
-        box-shadow: none !important;
-
-        will-change: transform;
+        transform: translateY(-7px);
         transition:
           transform
-          600ms
-          cubic-bezier(.3, .7, .4, 1);
-
-        display: block;
-        background: hsl(345deg 100% 47%);
-        transform: translateY(-5px);
+          250ms
+          cubic-bezier(.3, .7, .4, 1.5), background 200ms;
       }
 
-      &:hover {
-        transition: filter 250ms;
-        filter: brightness(110%);
+      .shadow {
+        transform: translateY(4px);
+      }
+    }
 
-        /* remove IOS tap hightlight */
-        -webkit-tap-highlight-color: transparent;
-        user-select: none;
-        
-        a {
-          transform: translateY(-7px);
-          transition:
-            transform
-            250ms
-            cubic-bezier(.3, .7, .4, 1.5);
-        }
-
-        .shadow {
-          transform: translateY(4px);
-        }
+    &:active, &focus {
+      a {
+        transform: translateY(-2px);
+        transition: transform 34ms;
       }
 
-      &:active, &focus {
-        a {
-          transform: translateY(-2px);
-          transition: transform 34ms;
-        }
-
-        .shadow {
-          transform: translateY(1px);
-        }
-     }
+      .shadow {
+        transform: translateY(1px);
+      }
+    }
   `}
 
   ${props => props.outlined
     ? css`
       a {  
-        padding calc(${props.paddingBlockClamp} - 2px) calc(${props.paddingHorizontalClamp} - 3px);
-
-        border: 2px solid ${props.backgroundColor};
-        box-shadow: 0px 2px 5px 3px black;
-
-        background-image: linear-gradient(to right, ${props.backgroundColor}, ${props.backgroundColor});
-        background-size: 100% 0%;
-        background-repeat: no-repeat;
-        background-position: right;
-        
-        color: ${props.theme.colors.gray[700]};
-
-        transition: all 200ms;
-        
-        ${props.disabled === false && props.D === false && css`
-          &:hover, &:focus {
-            color: ${props.theme.colors.gray[50]};
-            background-size: 100% 100%;
-          }
-        `}
-          
-        ${props.active && css`
-          color: ${props.theme.colors.gray[50]};
-          background-size: 100% 100%;
-        `}
+        ${outlinedButton(
+          props.paddingBlockClamp,
+          props.paddingHorizontalClamp,
+          props.backgroundColor,
+          props.theme.colors.gray[50],
+          props.theme.colors.gray[700],
+          props.disabled || false,
+          props.D,
+          props.active
+        )}
       }
     `
     

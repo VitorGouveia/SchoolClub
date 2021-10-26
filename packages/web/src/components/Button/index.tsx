@@ -74,17 +74,21 @@ const Button: FC<ButtonProps> = ({
       tabIndex={-1}
       ref={ButtonRef}
       type={type}
-      active={false}
+      active={isLoading}
       loading={isLoading}
       disabled={disabled}
       outlined={outlined}
-      fontSize={fontSize}
+      fontSizeClamp={fontSize}
       backgroundColor={background}
       paddingBlockClamp={useClamp("0.2rem", "0.8rem")}
       paddingHorizontalClamp={useClamp("1rem", "1.875rem")}
     >
-      <Shadow className="shadow" />
-      <Edge className="edge" />
+      {D === true && (
+        <>
+          <Shadow className="shadow" />
+          <Edge className="edge" />
+        </>
+      )}
 
       <Link href={href} name={name}>
         <span>
