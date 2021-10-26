@@ -50,6 +50,6 @@ export default createGlobalStyle`
   }
 
   :focus {
-    outline: 0;
+    /* outline: 0; */
   }
 `

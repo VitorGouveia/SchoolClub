@@ -34,7 +34,7 @@ const Header: FC<HeaderProps> = ({ headerRef }) => {
         </Nav>
 
         <ActionContainer>
-          <Button href="/login" name="Login" variant="secondary">Login</Button>
+          <Button D={true} href="#login" name="Login" variant="primary">Login</Button>
           <Button href="#signup" name="Sign Up" variant="primary">Sign Up</Button>
         </ActionContainer>
       </NavigationContainer>

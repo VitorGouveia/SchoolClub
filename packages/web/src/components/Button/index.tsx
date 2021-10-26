@@ -2,16 +2,17 @@ import { FC, memo, ReactNode, useEffect, useRef, useState } from "react"
 /*  */
 import { Link } from ".."
 import { useClamp, useTheme } from "../../hooks"
-import { ButtonContainer } from "./styles"
+import { ButtonContainer, Edge, Shadow } from "./styles"
 
 type ButtonProps = {
   children: ReactNode
-  variant?: "primary" | "secondary" | "tertiary" | "outlined"
+  variant?: "primary" | "secondary" | "tertiary" | "outlined" | "fast" | "expensive"
   href: string
   name: string
   type?: "button" | "submit" | "reset"
   disabled?: boolean
   loading?: boolean
+  D?: boolean
 }
 
 const Button: FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ const Button: FC<ButtonProps> = ({
   href,
   name,
   type = "button",
+  D = false,
   loading = false,
   disabled = false
 }) => {
@@ -68,10 +70,11 @@ const Button: FC<ButtonProps> = ({
   
   return (
     <ButtonContainer
+      D={D}
       tabIndex={-1}
       ref={ButtonRef}
       type={type}
-      active={isLoading}
+      active={false}
       loading={isLoading}
       disabled={disabled}
       outlined={outlined}
@@ -80,6 +83,9 @@ const Button: FC<ButtonProps> = ({
       paddingBlockClamp={useClamp("0.2rem", "0.8rem")}
       paddingHorizontalClamp={useClamp("1rem", "1.875rem")}
     >
+      <Shadow className="shadow" />
+      <Edge className="edge" />
+
       <Link href={href} name={name}>
         <span>
           {children}
