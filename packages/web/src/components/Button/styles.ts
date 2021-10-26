@@ -78,6 +78,10 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     color: ${props => props.theme.colors.gray[50]};
 
     border-radius: 5px;
+
+    span {
+      white-space: nowrap;
+    }
   }
 
   &:disabled {
@@ -160,7 +164,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 
     &:active, &focus {
       a {
-        transform: translateY(-2px);
+        transform: translateY(-1px);
         transition: transform 34ms;
       }
 
@@ -191,9 +195,9 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
         border: none;
         background: ${props.backgroundColor} !important;
 
-        ${props.disabled === false && css`
+        ${props.disabled === false && props.D === false && css`
           &:hover, &:focus {
-            background: ${lighten(0.2, props.backgroundColor)};
+            background: ${lighten(0.1, props.backgroundColor)} !important;
           }
         `}
           
@@ -241,11 +245,11 @@ export const Shadow = styled.span`
   height: 100%;
   
   border-radius: 5px;
-  filter: blur(4px);
+  filter: blur(2px);
   
   /* will-change: transform; */
 
-  background: hsl(0deg 0% 0% / 0.25);
+  background: rgba(0, 0, 0, 0.8);
   transform: translateY(2px);
 
   transition:

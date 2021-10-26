@@ -77,8 +77,7 @@ const Button: FC<ButtonProps> = ({
     setIsActive(false)
     setIsLoading(false)
   }
-
-  useEffect(() => console.log(isLoading), [isLoading])
+  
   return (
     <ButtonContainer
       onFocus={handleFocus}
@@ -87,14 +86,14 @@ const Button: FC<ButtonProps> = ({
       tabIndex={-1}
       ref={ButtonRef}
       type={type}
-      active={true}
+      active={isActive}
       loading={isLoading}
       disabled={disabled}
       outlined={outlined}
       fontSizeClamp={fontSize}
       backgroundColor={background}
       paddingBlockClamp={useClamp("0.2rem", "0.8rem")}
-      paddingHorizontalClamp={useClamp("1rem", "1.875rem")}
+      paddingHorizontalClamp={useClamp("0.4rem", "1.875rem")}
     >
       {D === true && (
         <>
