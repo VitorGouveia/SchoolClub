@@ -7,7 +7,7 @@ export const useClamp = (min: string, max: string) => {
   const minFontSize = Number(min.split("rem")[0]);
   const maxFontSize = Number(max.split("rem")[0]);
 
-  const minWidth = 270 / rootFontSize;
+  const minWidth = 140 / rootFontSize;
   const maxWidth = 1920 / rootFontSize;
 
   const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);

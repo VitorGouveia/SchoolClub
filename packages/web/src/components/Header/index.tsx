@@ -1,4 +1,5 @@
 import { FC, memo } from "react"
+import { useMediaQuery } from "react-responsive"
 /*  */
 import { Button, Link, Logo } from ".."
 import { useClamp } from "../../hooks"
@@ -11,15 +12,21 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ headerRef }) => {
   const headerPaddingBlock = useClamp("0.75rem", "1.25rem")
-  
+  const navHorizontalPadding = useClamp("0.1rem", "2rem")
+  const logoSize = useClamp("1rem", "4rem")
+  const logoTextSize = useClamp("0.4rem", "1.6rem")
+  const navFontSize = useClamp("0.5rem", "1rem")
+
+  const isTablet = useMediaQuery({ maxWidth: "768px" })
+
   return (
     <Container ref={headerRef} paddingBlockClamp={headerPaddingBlock}>
       <NavigationContainer>
         <LogoContainer>
-          <Logo size={64} variant="full" />
+          <Logo size={logoSize} logoTitleFontSize={logoTextSize} variant={isTablet ? "img" : "full"} />
         </LogoContainer>
 
-        <Nav>
+        <Nav fontSize={navFontSize} marginHorizontalClamp={navHorizontalPadding}>
           <NavItem>
             <Link href="#blog" name="blog">Blog</Link>
           </NavItem>
@@ -35,7 +42,7 @@ const Header: FC<HeaderProps> = ({ headerRef }) => {
 
         <ActionContainer>
           <Button href="#login" name="Login" variant="secondary">Login</Button>
-          <Button D href="#signup" name="Sign Up" variant="primary">Sign Up</Button>
+          <Button href="#signup" name="Sign Up" variant="primary">Sign Up</Button>
         </ActionContainer>
       </NavigationContainer>
     </Container>

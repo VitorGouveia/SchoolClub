@@ -14,13 +14,14 @@ type LogoProps = {
    * please supply a size in pixel with number or use the `useClamp()` hook to create a resizable size
    */
   size?: number | string 
+  logoTitleFontSize?: string
 }
 
-const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
+const Logo: FC<LogoProps> = ({ variant = "full", size = 64, logoTitleFontSize }) => {
   const { currentTheme } = useTheme()
 
   const logoMarginLeft = useClamp("0.1rem", "2rem")
-  const logoTitleFontSize = useClamp("0.8rem", "1.25rem")
+  const defaultFontSize = useClamp("0.8rem", "1.25rem")
 
   const LogoImg = useMemo(() => (
     <Link data-link="icon" href="/" name="homepage">
@@ -43,7 +44,7 @@ const Logo: FC<LogoProps> = ({ variant = "full", size = 64 }) => {
 
   const LogoName = useMemo(() => (
     <Link data-link="title" href="/" name="homepage">
-      <LogoTitle fontSizeClamp={logoTitleFontSize}>
+      <LogoTitle fontSizeClamp={logoTitleFontSize || defaultFontSize}>
         School<strong>Club</strong>
       </LogoTitle>
     </Link>

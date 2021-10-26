@@ -24,21 +24,40 @@ export const NavigationContainer = styled.nav`
 
   display: grid;
 
-  grid-template-areas: "logo . links . buttons";
-  grid-template-columns: 1fr 1fr 0.8fr 1fr 1fr;
+  grid-template-areas: "logo links buttons";
+  grid-template-columns: 1fr 2.8fr 1fr;
 `
 
 export const LogoContainer = styled.div`
   grid-area: logo;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
-export const Nav = styled.ul`
+type NavProps = {
+  fontSize: string
+  marginHorizontalClamp: string
+}
+
+export const Nav = styled.ul<NavProps>`
   grid-area: links;
 
   display: flex;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  li {
+    a {
+      font-size: ${props => props.fontSize}
+    }
+
+    &:nth-child(even) {
+      margin: 0 ${props => props.marginHorizontalClamp};
+    }
+  }
 `
 
 export const NavItem = styled.li`
@@ -52,7 +71,10 @@ export const NavItem = styled.li`
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: left bottom;
+
     padding: 0.2rem;
+    border-radius: 5px;
+
     transition: all 320ms cubic-bezier(0.215, 0.610, 0.355, 1);
 
     &:hover, &:focus {
