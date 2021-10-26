@@ -14,7 +14,6 @@ const Login: FC = () => {
   const { handleSubmit } = useForm()
 
   const handleLogin = ({}: LoginProps) => {
-    console.log("a")
   }
 
   return (

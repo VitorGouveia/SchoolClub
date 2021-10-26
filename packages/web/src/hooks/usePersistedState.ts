@@ -5,10 +5,8 @@ type Response<T> = [
   Dispatch<SetStateAction<T>>
 ]
 
-export function usePersistedState<T>(key: string, initialState: T): Response<T> {
-  const [state, setState] = useState(() => {
-    return initialState
-  })
+export function usePersistedState<T>(key: string, initialState: T | (() => T)): Response<T> {
+  const [state, setState] = useState(initialState)
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state))

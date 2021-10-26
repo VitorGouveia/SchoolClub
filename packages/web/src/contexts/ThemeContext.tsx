@@ -26,7 +26,9 @@ type ThemeProviderProps = {
 }
 
 export const Theme: FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = usePersistedState<DefaultTheme>("theme", dark)
+  const [currentTheme, setCurrentTheme] = usePersistedState<DefaultTheme>("theme", () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches === true ? dark : light
+  })
   const themes: keyof typeof availableThemes = "light" || "dark"
 
   const getThemes = () => availableThemes

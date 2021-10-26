@@ -55,4 +55,10 @@ export default createGlobalStyle`
     border-radius: 5px;
     /* -moz-outline-radius: 5px; */
   }
+
+  @media (prefers-color-scheme: dark) {
+    img {
+      filter: brightness(0.9);
+    }
+  }
 `
