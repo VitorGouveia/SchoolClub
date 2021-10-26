@@ -197,20 +197,20 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
           }
         `}
           
-        ${props.active && css`
+        ${props.active && props.D === false && css`
           background: ${lighten(0.2, props.backgroundColor)} !important;
         `}
       }
     `
   }
 
-  ${props => props.loading && css`
-    span {
-      visibility: hidden;
-      opacity: 0;
-    }
-    
+  ${props => props.loading === true && css`
     a {
+      span {
+        visibility: hidden;
+        opacity: 0;
+      }
+
       &::after {
         content: "";
         
@@ -219,7 +219,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
         
         position: absolute;
         inset: 0;
-  
+
         margin: auto;
         border: 4px solid transparent;
         border-top-color: #ffffff;

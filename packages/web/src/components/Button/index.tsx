@@ -25,11 +25,12 @@ const Button: FC<ButtonProps> = ({
   loading = false,
   disabled = false
 }) => {
-  const [isLoading, setIsLoading] = useState(loading)
   const ButtonRef = useRef<HTMLButtonElement | null>(null)
-
+  
   const { currentTheme } = useTheme()
   const [background, setBackground] = useState(currentTheme.colors.accent[200])
+  const [isLoading, setIsLoading] = useState(loading)
+  const [isActive, setIsActive] = useState(false)
   const [outlined, setOutlined] = useState(false)
   
   const fontSize = useClamp("0.5rem", "1rem")
@@ -67,13 +68,26 @@ const Button: FC<ButtonProps> = ({
       setIsLoading(!isLoading)
     })
   }, [])
+
+  const handleFocus = () => {
+    setIsActive(true)
+  }
+  
+  const handleBlur = () => {
+    setIsActive(false)
+    setIsLoading(false)
+  }
+
+  useEffect(() => console.log(isLoading), [isLoading])
   return (
     <ButtonContainer
+      onFocus={handleFocus}
+      onBlur={handleBlur}
       D={D}
       tabIndex={-1}
       ref={ButtonRef}
       type={type}
-      active={isLoading}
+      active={true}
       loading={isLoading}
       disabled={disabled}
       outlined={outlined}
