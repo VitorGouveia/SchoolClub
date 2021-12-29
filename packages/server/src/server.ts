@@ -3,6 +3,7 @@ import { ApolloServer, ExpressContext } from "apollo-server-express";
 import { buildSchema, NonEmptyArray } from "type-graphql";
 import { ContextFunction } from "apollo-server-core";
 import { Context } from "vm";
+import cookieParser from "cookie-parser";
 
 type ServerProps = {
 	port: string;
@@ -12,6 +13,8 @@ type ServerProps = {
 
 export const Server = async ({ port, resolvers, context }: ServerProps) => {
 	const app = express();
+
+	app.use(cookieParser());
 
 	const apolloServer = new ApolloServer({
 		schema: await buildSchema({

@@ -23,6 +23,7 @@
     ]
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
     "@types/dotenv-safe": "^8.1.2",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.6",
@@ -39,6 +40,7 @@
     "@mikro-orm/postgresql": "^4.5.10",
     "apollo-server-express": "2",
     "argon2": "^0.28.3",
+    "cookie-parser": "^1.4.6",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.2",
     "graphql": "^15.3.0",

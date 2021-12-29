@@ -16,8 +16,9 @@ export const Main = async () => {
 	const { app } = await Server({
 		port,
 		resolvers: [HelloResolver, UserResolver],
-		context: ({ res }) => ({
+		context: ({ req, res }) => ({
 			orm: orm.em,
+			req,
 			res,
 		}),
 	});
