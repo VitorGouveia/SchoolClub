@@ -3,6 +3,6 @@ import { User } from "../entities";
 
 export const createRefreshToken = ({ id: userId, tokenVersion }: User) => {
 	return sign({ userId, tokenVersion }, process.env.REFRESH_TOKEN_SECRET, {
-		expiresIn: "7d",
+		expiresIn: process.env.REFRESH_TOKEN_EXPIRE,
 	});
 };

@@ -3,6 +3,6 @@ import { User } from "../entities";
 
 export const createAccessToken = ({ id }: User) => {
 	return sign({ userId: id }, process.env.ACCESS_TOKEN_SECRET, {
-		expiresIn: "15m",
+		expiresIn: process.env.ACCESS_TOKEN_EXPIRE,
 	});
 };

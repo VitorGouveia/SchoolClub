@@ -5,4 +5,7 @@ export type AppContext = {
 	orm: EntityManager<IDatabaseDriver<Connection>>;
 	req: Request;
 	res: Response;
+	payload?: {
+		userId: string;
+	};
 };

@@ -1,13 +1,23 @@
-import { Arg, Ctx, Field, Mutation, ObjectType, Resolver } from "type-graphql";
-import { AppContext } from "../types";
-import { User } from "../entities";
+import {
+	Arg,
+	Ctx,
+	Field,
+	Mutation,
+	ObjectType,
+	Query,
+	Resolver,
+	UseMiddleware,
+} from "type-graphql";
 import jwt from "jsonwebtoken";
 import { hash, verify } from "argon2";
+import { User } from "../entities";
+import { AppContext } from "../types";
 import {
 	createAccessToken,
 	createRefreshToken,
 	revokeRefreshTokensForUser,
 } from "../utils";
+import { IsAuth } from "../middlewares";
 
 @ObjectType()
 class FieldError {
@@ -219,20 +229,42 @@ export class UserResolver {
 	}
 
 	@Mutation(() => Boolean)
+	@UseMiddleware(IsAuth)
 	async logout(
-		@Arg("id", { nullable: true }) id: string,
-		@Ctx() { orm, res }: AppContext
+		@Arg("full", { nullable: true }) full: boolean,
+		@Ctx() { payload, orm, res }: AppContext
 	): Promise<Boolean> {
-		if (!id) {
+		if (!full) {
 			res.clearCookie("jid");
 			return true;
 		}
 
 		res.clearCookie("jid");
-		revokeRefreshTokensForUser(id, orm);
+		revokeRefreshTokensForUser(payload?.userId!, orm);
 		// would be good practice to add 1 to user tokenVersion
 		// so the user gets logged out of ALL devices, including mobile
 
 		return true;
+	}
+
+	@Query(() => UserResponse)
+	@UseMiddleware(IsAuth)
+	async me(@Ctx() { payload, orm }: AppContext): Promise<UserResponse> {
+		const user = await orm.findOne(User, {
+			id: payload?.userId,
+		});
+
+		if (!user) {
+			return {
+				errors: [
+					{
+						field: "id",
+						message: "This user doesn't exist.",
+					},
+				],
+			};
+		}
+
+		return { user };
 	}
 }
