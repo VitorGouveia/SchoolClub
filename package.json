@@ -1,6 +1,11 @@
 {
   "name": "schoolclub",
+  "version": "0.0.1",
+  "description": "The schoolclub App codebase",
   "private": true,
+  "license": "MIT",
+  "repository": "https://github.com/VitorGouveia/SchoolClub",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
   "packageManager": "yarn@3.1.1",
   "workspaces": [
     "packages/**"
