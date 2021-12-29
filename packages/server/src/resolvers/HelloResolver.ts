@@ -1,4 +1,7 @@
-import { Arg, Query, Resolver } from "type-graphql";
+import { Arg, Ctx, Query, Resolver } from "type-graphql";
+
+import { User } from "../entities";
+import { AppContext } from "../types";
 
 @Resolver()
 export class HelloResolver {
@@ -9,5 +12,10 @@ export class HelloResolver {
 		}
 
 		return `Hello ${name}`;
+	}
+
+	@Query(() => [User])
+	getUsers(@Ctx() { orm }: AppContext): Promise<User[]> {
+		return orm.find(User, {});
 	}
 }
