@@ -1,5 +1,8 @@
 import { FC } from "react";
+import Head from "next/head";
 
+import { HStack } from "@chakra-ui/react";
+import { Navbar } from "../components";
 import { useAuth } from "../hooks";
 
 type indexProps = {};
@@ -7,18 +10,15 @@ type indexProps = {};
 const index: FC<indexProps> = ({}) => {
 	const { user } = useAuth();
 
-	if (!user) {
-		return (
-			<div>
-				<h1>loading...</h1>
-			</div>
-		);
-	}
-
 	return (
-		<div>
-			<h1>hello {user.username}</h1>
-		</div>
+		<>
+			<Head>
+				<title>SchoolClub</title>
+			</Head>
+			<HStack>
+				<Navbar />
+			</HStack>
+		</>
 	);
 };
 

@@ -3,7 +3,7 @@ import { MiddlewareFn } from "type-graphql";
 import { verify } from "jsonwebtoken";
 
 export const IsAuth: MiddlewareFn<AppContext> = ({ context }, next) => {
-	const authorization = context.req.headers["authorization"];
+	const authorization = context.req.cookies["schoolclub.token"];
 
 	if (!authorization) {
 		throw new Error("Not authenticated");

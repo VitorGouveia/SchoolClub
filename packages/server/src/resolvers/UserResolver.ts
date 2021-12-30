@@ -129,8 +129,8 @@ export class UserResolver {
 		const auth_error = {
 			errors: [
 				{
-					field: "Credentials",
-					message: "Invalid login.",
+					field: "login",
+					message: "Wrong login.",
 				},
 			],
 		};
@@ -142,7 +142,14 @@ export class UserResolver {
 		const comparePasswords = await verify(user.password, password);
 
 		if (!comparePasswords) {
-			return auth_error;
+			return {
+				errors: [
+					{
+						field: "password",
+						message: "Wrong password.",
+					},
+				],
+			};
 		}
 
 		const refreshToken = createRefreshToken(user);

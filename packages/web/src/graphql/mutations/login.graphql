@@ -9,6 +9,7 @@ mutation Login($login: String!, $password: String!) {
 			id
 			username
 			email
+			createdAt
 			tokenVersion
 		}
 
