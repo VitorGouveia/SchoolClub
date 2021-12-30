@@ -1,5 +1,6 @@
 import { EntityManager, IDatabaseDriver, Connection } from "@mikro-orm/core";
 import { Request, Response } from "express";
+import { Field, ObjectType } from "type-graphql";
 
 export type AppContext = {
 	orm: EntityManager<IDatabaseDriver<Connection>>;
@@ -9,3 +10,11 @@ export type AppContext = {
 		userId: string;
 	};
 };
+
+@ObjectType()
+export class FieldError {
+	@Field()
+	field: string;
+	@Field()
+	message: string;
+}
