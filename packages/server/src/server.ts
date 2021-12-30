@@ -4,6 +4,7 @@ import { buildSchema, NonEmptyArray } from "type-graphql";
 import { ContextFunction } from "apollo-server-core";
 import { Context } from "vm";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 type ServerProps = {
 	port: string;
@@ -14,6 +15,12 @@ type ServerProps = {
 export const Server = async ({ port, resolvers, context }: ServerProps) => {
 	const app = express();
 
+	app.use(
+		cors({
+			origin: process.env.APP_URL,
+			credentials: true,
+		})
+	);
 	app.use(cookieParser());
 
 	const apolloServer = new ApolloServer({
@@ -28,6 +35,7 @@ export const Server = async ({ port, resolvers, context }: ServerProps) => {
 
 	apolloServer.applyMiddleware({
 		app,
+		cors: false,
 	});
 
 	app.listen(port, () => console.log(`[server]: listening on port: ${port}`));

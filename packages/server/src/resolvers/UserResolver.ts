@@ -54,6 +54,29 @@ export class UserResolver {
 
 		// either prefetch the user and see if it exists -> slower
 		// or put a try catch on db flush and get the code error for user duplication -> faster
+		const errors = [];
+		const usernameAlreadyExists = await orm.findOne(User, {
+			username,
+		});
+
+		if (usernameAlreadyExists) {
+			errors.push({
+				field: "username",
+				message: "Username already taken.",
+			});
+		}
+
+		const emailAlreadyExists = await orm.findOne(User, {
+			email,
+		});
+
+		if (emailAlreadyExists) {
+			errors.push({
+				field: "email",
+				message: "E-mail already taken.",
+			});
+		}
+
 		const hashedPassword = await hash(password);
 
 		const user = orm.create(User, {
@@ -64,66 +87,50 @@ export class UserResolver {
 
 		try {
 			await orm.persistAndFlush(user);
-
-			const accessToken = createAccessToken(user);
-
-			return {
-				user,
-				accessToken,
-			};
 		} catch (error) {
+			console.log(error);
 			// CODE: 23502 -> failed to insert on not null constraint
-			switch (error.code) {
-				case "23505":
-					const key =
-						error.constraint === "user_email_unique" ? "email" : "username";
-					return {
-						errors: [
-							{
-								field: key,
-								message: `${key} already taken.`,
-							},
-						],
-					};
-
-				case "23502":
-					return {
-						errors: [
-							{
-								field: "user",
-								message: "Failed to insert on not null field",
-							},
-						],
-					};
+			if (error.detail.includes("already exists")) {
+				return {
+					errors: errors,
+				};
 			}
-
-			return {
-				errors: [
-					{
-						field: "user",
-						message: error.message,
-					},
-				],
-			};
 		}
+
+		const accessToken = createAccessToken(user);
+
+		return {
+			user,
+			accessToken,
+		};
 	}
 
 	@Mutation(() => UserResponse)
 	async login(
-		@Arg("username", { nullable: true }) username: string,
-		@Arg("email", { nullable: true }) email: string,
+		@Arg("login") login: string,
 		@Arg("password") password: string,
 		@Ctx() { orm, res }: AppContext
 	): Promise<UserResponse> {
 		// search a user by or the email or the username
-		const key = !!username ? { username } : { email };
-		const user = await orm.findOne(User, key);
+
+		//first, try to find a user with this login by username
+		//first, then by email
+		let user: User | null;
+		user = await orm.findOne(User, {
+			username: login,
+		});
+
+		if (!user) {
+			user = await orm.findOne(User, {
+				email: login,
+			});
+		}
 
 		const auth_error = {
 			errors: [
 				{
-					field: "Credentials",
-					message: "Invalid login.",
+					field: "login",
+					message: "Wrong login.",
 				},
 			],
 		};
@@ -135,7 +142,14 @@ export class UserResolver {
 		const comparePasswords = await verify(user.password, password);
 
 		if (!comparePasswords) {
-			return auth_error;
+			return {
+				errors: [
+					{
+						field: "password",
+						message: "Wrong password.",
+					},
+				],
+			};
 		}
 
 		const refreshToken = createRefreshToken(user);
@@ -156,7 +170,6 @@ export class UserResolver {
 	async refreshToken(
 		@Ctx() { req, orm, res }: AppContext
 	): Promise<UserResponse> {
-		console.log(req.cookies);
 		const token = req.cookies.jid;
 
 		if (!token) {

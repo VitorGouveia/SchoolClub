@@ -1,0 +1,14 @@
+mutation refreshToken {
+	refreshToken {
+		errors {
+			field
+			message
+		}
+
+		user {
+			...RegularUser
+		}
+
+		accessToken
+	}
+}

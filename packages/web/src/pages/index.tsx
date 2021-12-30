@@ -1,58 +1,24 @@
 import { FC } from "react";
+import Head from "next/head";
 
-import { Formik, Form } from "formik";
-import { Wrapper, Input } from "../components";
-import { Box } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
-
-import { useMutation } from "urql";
+import { HStack } from "@chakra-ui/react";
+import { Navbar } from "../components";
+import { useAuth } from "../hooks";
 
 type indexProps = {};
 
 const index: FC<indexProps> = ({}) => {
-	const [] = useMutation(`
-    
-  `);
+	const { user } = useAuth();
 
 	return (
-		<Wrapper variant="small">
-			<Formik
-				initialValues={{ username: "", password: "" }}
-				onSubmit={(props) => {
-					console.log(props);
-				}}
-			>
-				{({ isSubmitting }) => (
-					<Form>
-						<Input
-							name="username"
-							placeholder="Set your username"
-							label="Username"
-						/>
-
-						<Box mt={4}>
-							<Input
-								name="password"
-								type="password"
-								placeholder="Set your password"
-								label="Password"
-							/>
-						</Box>
-
-						<Button
-							mt={6}
-							w="100%"
-							type="submit"
-							variant="solid"
-							colorScheme="whatsapp"
-							isLoading={isSubmitting}
-						>
-							Register
-						</Button>
-					</Form>
-				)}
-			</Formik>
-		</Wrapper>
+		<>
+			<Head>
+				<title>SchoolClub</title>
+			</Head>
+			<HStack>
+				<Navbar />
+			</HStack>
+		</>
 	);
 };
 
