@@ -4,6 +4,7 @@ import { Provider, createClient } from "urql";
 import { theme } from "../theme";
 import { AppProps } from "next/app";
 
+import { AuthProvider } from "../context";
 import "../styles/global.css";
 
 const client = createClient({
@@ -16,9 +17,11 @@ const client = createClient({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<Provider value={client}>
-			<ChakraProvider resetCSS theme={theme}>
-				<Component {...pageProps} />
-			</ChakraProvider>
+			<AuthProvider>
+				<ChakraProvider resetCSS theme={theme}>
+					<Component {...pageProps} />
+				</ChakraProvider>
+			</AuthProvider>
 		</Provider>
 	);
 }

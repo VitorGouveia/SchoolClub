@@ -1,0 +1,18 @@
+mutation refreshToken {
+	refreshToken {
+		errors {
+			field
+			message
+		}
+
+		user {
+			id
+			username
+			email
+			tokenVersion
+			createdAt
+		}
+
+		accessToken
+	}
+}
