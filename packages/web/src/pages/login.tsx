@@ -9,13 +9,13 @@ import { Button } from "@chakra-ui/button";
 
 import { useAuth } from "../hooks";
 
-const RegisterPage: FC = () => {
+const LoginPage: FC = () => {
 	const { login } = useAuth();
 
 	return (
 		<>
 			<Head>
-				<title>SchoolClub | Register</title>
+				<title>SchoolClub | Login</title>
 			</Head>
 
 			<Center w="100%" h="100%" flex="">
@@ -70,7 +70,7 @@ const RegisterPage: FC = () => {
 									colorScheme="teal"
 									isLoading={isSubmitting}
 								>
-									Register
+									Login
 								</Button>
 							</Form>
 						)}
@@ -99,4 +99,4 @@ const RegisterPage: FC = () => {
 	);
 };
 
-export default RegisterPage;
+export default LoginPage;
