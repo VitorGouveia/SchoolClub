@@ -7,7 +7,7 @@ import { Server } from "./server";
 import { MikroORM } from "@mikro-orm/core";
 import MikroORMConfig from "./mikro-orm.config";
 
-import { HelloResolver, UserResolver } from "./resolvers";
+import { HelloResolver, UserResolver, AuthResolver } from "./resolvers";
 
 export const Main = async () => {
 	const orm = await MikroORM.init(MikroORMConfig);
@@ -15,7 +15,7 @@ export const Main = async () => {
 
 	const { app } = await Server({
 		port,
-		resolvers: [HelloResolver, UserResolver],
+		resolvers: [HelloResolver, UserResolver, AuthResolver],
 		context: ({ req, res }) => ({
 			orm: orm.em,
 			req,
