@@ -12,9 +12,15 @@ import {
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 	name: string;
 	label: string;
+	helper?: string;
 };
 
-export const Input: FC<InputProps> = ({ label, size: _, ...props }) => {
+export const Input: FC<InputProps> = ({
+	label,
+	helper = "",
+	size: _,
+	...props
+}) => {
 	const [field, { error }] = useField(props);
 
 	return (
@@ -29,9 +35,7 @@ export const Input: FC<InputProps> = ({ label, size: _, ...props }) => {
 			{error ? (
 				<FormErrorMessage>{error}</FormErrorMessage>
 			) : (
-				<FormHelperText>
-					Enter the email you'd like to receive the newsletter on.
-				</FormHelperText>
+				<>{helper && <FormHelperText>{helper}</FormHelperText>}</>
 			)}
 		</FormControl>
 	);
