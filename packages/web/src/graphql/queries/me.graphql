@@ -6,12 +6,7 @@ query Me {
 		}
 
 		user {
-			id
-			username
-			email
-			tokenVersion
-			createdAt
-			updatedAt
+			...RegularUser
 		}
 	}
 }

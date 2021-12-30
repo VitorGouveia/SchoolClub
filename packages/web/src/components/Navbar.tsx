@@ -1,6 +1,5 @@
 import { FC, useEffect } from "react";
 import Link from "next/link";
-import Head from "next/head";
 
 import { Center, Divider, Flex } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
@@ -43,13 +42,10 @@ export const Navbar: FC<NavbarProps> = ({}) => {
 			</>
 		);
 	} else {
-		// logged in
 		body = (
-			<>
-				<Button onClick={() => logout()} rounded="md" variant="link">
-					Logout
-				</Button>
-			</>
+			<Button onClick={() => logout()} rounded="md" variant="link">
+				Logout
+			</Button>
 		);
 	}
 

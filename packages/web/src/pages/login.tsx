@@ -80,15 +80,15 @@ const LoginPage: FC = () => {
 
 					<HStack>
 						<Heading size="sm" as="h4">
-							Already has an account?{" "}
-							<Link href="/login">
+							Don't have an account?{" "}
+							<Link href="/register">
 								<Button
 									cursor="pointer"
 									as="a"
 									colorScheme="teal"
 									variant="link"
 								>
-									Login
+									Register
 								</Button>
 							</Link>
 						</Heading>

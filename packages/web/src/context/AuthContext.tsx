@@ -98,6 +98,7 @@ export const AuthProvider: FC = ({ children }) => {
 			// transform the error to Formik error
 		}
 
+		setGlobalUser(data.register?.user);
 		setAccessToken(data.register?.accessToken);
 		setCookie(undefined, "schoolclub.token", data.register?.accessToken, {
 			maxAge: 60 * 5, // 5 minutes

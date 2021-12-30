@@ -6,11 +6,7 @@ mutation refreshToken {
 		}
 
 		user {
-			id
-			username
-			email
-			tokenVersion
-			createdAt
+			...RegularUser
 		}
 
 		accessToken

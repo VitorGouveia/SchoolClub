@@ -6,11 +6,7 @@ mutation Login($login: String!, $password: String!) {
 		}
 
 		user {
-			id
-			username
-			email
-			createdAt
-			tokenVersion
+			...RegularUser
 		}
 
 		accessToken
